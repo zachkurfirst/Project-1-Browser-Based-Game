@@ -10,18 +10,28 @@
 
   <body>
     <header>
-        <h1 class="game-title">Simon: NYC</h1>
+      <h1 class="game-title">Simon: NYC</h1>
     </header>
     <main class="container">
-      <section class="btns-container">
-        <button class="btn btn-coffee"><img src="docs/assets/coffee.png" alt="coffee" class="img"></button>
-        <button class="btn btn-bagel"><img src="docs/assets/bagel.png" alt="bagel" class="img"></button>
-        <button class="btn btn-pizza"><img src="docs/assets/pizza.png" alt="pizza" class="img"></button>
-        <button class="btn btn-sushi"><img src="docs/assets/sushi.png" alt="sushi" class="img"></button>
+      <!-- button section -->
+      <section id="game-choices" class="btns-container">
+        <button type="button" class="btn btn-coffee">
+          <img src="docs/assets/coffee.png" alt="coffee" class="img" />
+        </button>
+        <button type="button" class="btn btn-bagel">
+          <img src="docs/assets/bagel.png" alt="bagel" class="img" />
+        </button>
+        <button type="button" class="btn btn-pizza">
+          <img src="docs/assets/pizza.png" alt="pizza" class="img" />
+        </button>
+        <button type="button" class="btn btn-sushi">
+          <img src="docs/assets/sushi.png" alt="sushi" class="img" />
+        </button>
       </section>
+      <!-- scoreboard section -->
       <section class="score-container">
-        <p>Level: <span></span></p>
-        <p>High Score: <span></span></p>
+        <p>Level: <span id="current-level">...</span></p>
+        <p>High Score: <span id="high-score">...</span></p>
       </section>
     </main>
   </body>

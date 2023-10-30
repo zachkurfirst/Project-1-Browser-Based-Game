@@ -37,20 +37,56 @@ body {
   border: none;
   border-radius: 50%;
   cursor: pointer;
+  padding: 80px;
+
+}
+
+.btn:hover {
+transition: .5s;
 }
 
 .btn-coffee {
   background-color: #d9ead3ff;
 }
 
+.btn-coffee:hover {
+  background-color: green;
+}
+
+.btn-bagel {
+  background-color: #ffe599ff;
+}
+
+.btn-bagel:hover {
+  background-color: gold;
+}
+
+.btn-pizza {
+  background-color: #f4ccccff;
+}
+
+.btn-pizza:hover {
+  background-color: red;
+}
+
+.btn-sushi {
+  background-color: #c9daf8ff;
+}
+
+.btn-sushi:hover {
+  background-color: blue;
+}
+
 .img {
   padding: 5px;
+  border: 2px solid orange;
+  max-width: 200px;
 }
 
 .score-container {
   border: 2px solid hotpink;
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
 p {
