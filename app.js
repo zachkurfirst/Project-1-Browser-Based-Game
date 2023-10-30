@@ -50,6 +50,11 @@ gameBtnEls.forEach(function (btn) {
   btn.addEventListener("click", playerTurn);
 });
 
+// imgEls.forEach(function (img) {
+//     //    console.log('button value: ', btn.value)
+//     img.addEventListener("click", playerTurn);
+//   });
+
 /*----- functions -----*/
 // init
 init(); // -> starts game when JS loads
@@ -98,7 +103,7 @@ function computerTurn() {
   //   console.log("random computer choice: ", options[rdmChoice]);
   computerChoices.push(options[rdmChoice]);
   console.log(computerChoices);
-  computerString = computerChoices.join('-'); // -> turn computerChoices array into a string
+  computerString = computerChoices.join("-"); // -> turn computerChoices array into a string
   console.log(computerString);
   return computerString;
 }
@@ -106,10 +111,10 @@ function computerTurn() {
 // playerTurn
 // start with logging the name of the option on click
 function playerTurn(event) {
-  console.log(event.target.value);
-  playerChoices.push(event.target.value);
+  console.log(event.target.id);
+  playerChoices.push(event.target.id);
   console.log(playerChoices);
-  playerString = playerChoices.join('-'); // -> turn playerChoices array into a string
+  playerString = playerChoices.join("-"); // -> turn playerChoices array into a string
   console.log(playerString);
   compareChoices();
 }
@@ -119,6 +124,15 @@ function playerTurn(event) {
 // If ===, call computerTurn function
 // If !==, game over
 function compareChoices() {
+  if (playerChoices === computerChoices) {
+    level++;
+    if (level > highScore) {
+      highScore = level;
+    }
+    renderScoreboard();
+  } else {
+    gameOver();
+  }
 }
 
 // renderScoreboard
