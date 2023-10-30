@@ -45,9 +45,12 @@ console.log("restart button: ", restartBtnEl);
 init(); // -> starts game when JS loads
 
 function init() {
+  //reset turn arrays and set level back to start
   computerTurn = [];
   playerTurn = [];
   level = 1;
+
+  // TODO: shouldn't be set to 0, should be set to existing high score
   highScore = 0;
 
   console.log("computer turn: ", computerTurn);
@@ -65,6 +68,7 @@ function init() {
 function runGame() {
   console.log("game is running!");
 
+  computerChoice();
   render(); // as the game is changing, the render is effecting what is displayed on the page
 }
 
@@ -75,6 +79,21 @@ function render() {
 
   renderScoreboard();
 }
+
+// computerChoice
+function computerChoice() {
+    // TODO: Need to start by repeating existing choices, then add one additional random choice
+  const rdmChoice = Math.floor(Math.random() * options.length);
+  console.log("random computer choice index: ", rdmChoice);
+  // return options[rdmChoice];
+  console.log("random computer choice: ", options[rdmChoice]);
+  computerTurn.push(options[rdmChoice])
+  console.log(computerTurn)
+}
+
+// playerChoice
+
+// compareChoices
 
 // renderScoreboard
 function renderScoreboard() {
