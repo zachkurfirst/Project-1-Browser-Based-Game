@@ -48,9 +48,12 @@ function init() {
   computerTurn = [];
   playerTurn = [];
   level = 1;
+  highScore = 0;
 
-  console.log('computer turn: ', computerTurn)
-  console.log('level: ', level)
+  console.log("computer turn: ", computerTurn);
+  console.log("player turn: ", playerTurn);
+  console.log("level: ", level);
+  console.log("high score: ", highScore);
   console.log("game has started!");
 
   runGame();
@@ -58,17 +61,28 @@ function init() {
 }
 
 // runGame
+// game loop function -> the game logic lives here
 function runGame() {
-    console.log('game is running!')
+  console.log("game is running!");
+
+  render(); // as the game is changing, the render is effecting what is displayed on the page
 }
 
 // render
 // trigger all render helper functions (updating stats, etc.)
 function render() {
-    console.log('game is rendering!')
+  console.log("game is rendering!");
+
+  renderScoreboard();
 }
 
-// renderStats
-// updateStats -> advance to next level, update high score (if applicable)
-// continueGame
+// renderScoreboard
+function renderScoreboard() {
+  console.log("render scoreboard totals!");
+  levelEl.textContent = level;
+  highScoreEl.textContent = highScore;
+}
+
+// updateScoreboard -> advance to next level, update high score (if applicable)
+// nextLevel
 // gameOver
