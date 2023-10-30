@@ -7,6 +7,14 @@ I am choosing to build 'Simon', a short-term memory game. I recently moved to Ne
 ## Pseudocode
 ![](/pseudocode.md)
 
+## User Stories
+1. As a player, I would like to first see the Computer's choice.
+2. As a player, I would like to make my choice.
+3. As a player, I would like to know if I'm correct by seeing me advance to the next level.
+4. As a player, I would like to know when I've lost and the game is over.
+5. (ICEBOX) As a player, I'd like audio to be added to each of the 4 choice buttons.
+6. (ICEBOX) As a player, I'd like for there to be a button where I can read up on game rules/instructions.
+
 ## Game Logic
 
 #### The Objective
