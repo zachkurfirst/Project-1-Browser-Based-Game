@@ -14,8 +14,11 @@ const options = ["coffee", "bagel", "pizza", "sushi"];
 /*----- state variables -----*/
 // Data that will change while the game is running
 
-let computerTurn = []; // array of options
-let playerTurn = []; // array of options
+let computerChoices = []; // array of options
+let playerChoices = []; // array of options
+
+let computerString;
+let playerString;
 
 let level;
 let highScore;
@@ -35,10 +38,17 @@ console.log("game message: ", messageEl);
 const gameBtnEls = document.querySelectorAll("#game-choices button");
 console.log("button elements: ", gameBtnEls);
 
+// const imgEls = document.querySelectorAll('#game-choices img')
+// console.log(imgEls)
+
 const restartBtnEl = document.querySelector("#restart");
 console.log("restart button: ", restartBtnEl);
 
 /*----- event listeners -----*/
+gameBtnEls.forEach(function (btn) {
+  //    console.log('button value: ', btn.value)
+  btn.addEventListener("click", playerTurn);
+});
 
 /*----- functions -----*/
 // init
@@ -46,17 +56,17 @@ init(); // -> starts game when JS loads
 
 function init() {
   //reset turn arrays and set level back to start
-  computerTurn = [];
-  playerTurn = [];
+  computerChoices = [];
+  playerChoices = [];
   level = 1;
 
   // TODO: shouldn't be set to 0, should be set to existing high score
   highScore = 0;
 
-  console.log("computer turn: ", computerTurn);
-  console.log("player turn: ", playerTurn);
-  console.log("level: ", level);
-  console.log("high score: ", highScore);
+  //   console.log("computer turn: ", computerChoices);
+  //   console.log("player turn: ", playerChoices);
+  //   console.log("level: ", level);
+  //   console.log("high score: ", highScore);
   console.log("game has started!");
 
   runGame();
@@ -68,8 +78,8 @@ function init() {
 function runGame() {
   console.log("game is running!");
 
-  computerChoice();
-  render(); // as the game is changing, the render is effecting what is displayed on the page
+  computerTurn();
+  //   render(); // as the game is changing, the render is effecting what is displayed on the page
 }
 
 // render
@@ -80,28 +90,49 @@ function render() {
   renderScoreboard();
 }
 
-// computerChoice
-function computerChoice() {
-    // TODO: Need to start by repeating existing choices, then add one additional random choice
+// computerTurn
+function computerTurn() {
+  // TODO: Need to start by repeating existing choices, then add one additional random choice
   const rdmChoice = Math.floor(Math.random() * options.length);
-  console.log("random computer choice index: ", rdmChoice);
-  // return options[rdmChoice];
-  console.log("random computer choice: ", options[rdmChoice]);
-  computerTurn.push(options[rdmChoice])
-  console.log(computerTurn)
+  //   console.log("random computer choice index: ", rdmChoice);
+  //   console.log("random computer choice: ", options[rdmChoice]);
+  computerChoices.push(options[rdmChoice]);
+  console.log(computerChoices);
+  computerString = computerChoices.join('-'); // -> turn computerChoices array into a string
+  console.log(computerString);
+  return computerString;
 }
 
-// playerChoice
+// playerTurn
+// start with logging the name of the option on click
+function playerTurn(event) {
+  console.log(event.target.value);
+  playerChoices.push(event.target.value);
+  console.log(playerChoices);
+  playerString = playerChoices.join('-'); // -> turn playerChoices array into a string
+  console.log(playerString);
+  compareChoices();
+}
 
 // compareChoices
+// Once both computerChoices and playerChoices are strings, compare the string values
+// If ===, call computerTurn function
+// If !==, game over
+function compareChoices() {
+}
 
 // renderScoreboard
 function renderScoreboard() {
   console.log("render scoreboard totals!");
   levelEl.textContent = level;
   highScoreEl.textContent = highScore;
+  4;
 }
 
 // updateScoreboard -> advance to next level, update high score (if applicable)
+function updateScoreboard() {}
 // nextLevel
 // gameOver
+function gameOver() {
+  console.log("game over!");
+}

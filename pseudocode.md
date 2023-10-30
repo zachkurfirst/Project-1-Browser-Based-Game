@@ -5,6 +5,7 @@ Pseudocode outlines the app's logic using plain language. It provides a road map
 ## Step-By-Step Logic
 
 1. The game begins with the computer making it's first choice. This is done by selecting a random index from the 'options' array (coffee, bagel, pizza, sushi). The computer's random choice(s) are stored in the 'computerTurn' variable to represent the computer's choices.
+- Convert computerChoices array to a string with join method, known as 'computerString'
 
 2. The player then has to try to repeat the computer's choice by clicking the corresponding, matching button. This will run a function that will read the sequence of button clicks and store them in the 'playerTurn' variable to represent the player's choices.
 
@@ -14,4 +15,6 @@ Pseudocode outlines the app's logic using plain language. It provides a road map
 
 5. The process above repeats for each level, with the computer first repeating it's previous turn and then incremently adding 1 new, random choice to their turn.
 
-6. The game ends when the player's turn does not equal the computer's.
+6. How does player lose? The game ends when the player's turn does not equal the computer's.
+- Compare playerString to computerString, if !==, game over
+- Reveal game over message and button to restart
