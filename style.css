@@ -92,3 +92,7 @@ transition: .5s;
 p {
   color: white
 }
+
+.hidden {
+  visibility: hidden;
+}
