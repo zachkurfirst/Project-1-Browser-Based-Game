@@ -155,15 +155,15 @@ function updateScoreboard() {
 // gameOver
 function gameOver() {
   console.log("game over!");
-  gameOverEl.classList.remove("hidden");
-  tryAgainBtnEl.classList.remove("hidden");
-  introMsgEl.classList.add("hidden");
+  gameOverEl.removeAttribute("hidden");
+  tryAgainBtnEl.removeAttribute("hidden");
+  introMsgEl.setAttribute("hidden", "");
 }
 
 //restartGame
 function restartGame() {
-  introMsgEl.classList.remove("hidden");
-  gameOverEl.classList.add("hidden");
-  tryAgainBtnEl.classList.add("hidden");
+  introMsgEl.removeAttribute("hidden");
+  gameOverEl.setAttribute("hidden", "");
+  tryAgainBtnEl.setAttribute("hidden", "");
   init();
 }

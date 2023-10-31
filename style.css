@@ -111,11 +111,6 @@ p {
   margin: auto;
 }
 
-.hidden {
- visibility: hidden;
-  /* content-visibility: hidden; */
-}
-
 .over-message {
   color: #ea9d9d;
   text-align: center;
