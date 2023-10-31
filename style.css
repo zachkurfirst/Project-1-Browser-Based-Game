@@ -109,6 +109,7 @@ p {
 .intro-message {
   color: white;
   margin: auto;
+  padding-bottom: 2rem;
 }
 
 .over-message {

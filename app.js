@@ -110,6 +110,17 @@ function computerTurn() {
   console.log("computer choice array: ", computerChoices);
   computerString = computerChoices.join("-"); // -> turn computerChoices array into a string
   console.log("computer choice string: ", computerString);
+// for of loop with set timeout
+  for (computerChoice of computerChoices) {
+    // console.log('computer choice iterated: ', computerChoice)
+    setTimeout(function(){
+      console.log('computer choice iterated: ', computerChoice)
+    }, 2000)
+  }
+
+  // on each new computer turn, erase player history
+  playerChoices = [];
+  playerString = "";
   return computerString;
 }
 
@@ -117,11 +128,20 @@ function computerTurn() {
 function playerTurn(event) {
   //   console.log(event.target.id);
 
+
   playerChoices.push(event.target.id);
   console.log("player choice array: ", playerChoices);
   playerString = playerChoices.join("-"); // -> turn playerChoices array into a string
   console.log("player choice string: ", playerString);
-  compareChoices();
+
+  if (
+    computerString.startsWith(playerString) &&
+    playerString !== computerString
+  ) {
+    console.log("let player continue turn");
+  } else {
+    compareChoices();
+  }
 }
 
 // compareChoices
