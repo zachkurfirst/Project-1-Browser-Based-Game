@@ -13,10 +13,25 @@
       <h1 class="game-title">Simon: NYC</h1>
     </header>
     <main class="container">
+      <!-- intro section (description and restart prompts alternate visibilty) -->
+      <section class="intro-container">
+        <h2 id="description" class="intro-message">
+          Match the computer's choices to level up.
+        </h2>
+        <h2 id="game-over" class="over-message hidden">Game over!</h2>
+        <button type="button" id="try-again" class="btn-restart hidden">
+          Try Again
+        </button>
+      </section>
       <!-- button section -->
       <section id="game-choices" class="btns-container">
         <button type="button" class="btn btn-coffee" id="coffee">
-          <img src="docs/assets/coffee.png" alt="coffee" class="img" id="coffee" />
+          <img
+            src="docs/assets/coffee.png"
+            alt="coffee"
+            class="img"
+            id="coffee"
+          />
         </button>
         <button type="button" class="btn btn-bagel" id="bagel">
           <img src="docs/assets/bagel.png" alt="bagel" class="img" id="bagel" />
@@ -30,11 +45,8 @@
       </section>
       <!-- scoreboard section -->
       <section id="score-state" class="score-container">
-        <p>Level: <span id="current-level">...</span></p>
+        <p>Score: <span id="current-score">...</span></p>
         <p>High Score: <span id="high-score">...</span></p>
-        <!-- ICEBOX - game over message and restart button -->
-        <h2 id="game-message" class="hidden">Game over!</h2>
-        <button id="restart" class="hidden">Restart</button>
       </section>
     </main>
   </body>

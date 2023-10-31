@@ -44,11 +44,10 @@ body {
   border-radius: 50%;
   cursor: pointer;
   padding: 80px;
-
 }
 
 .btn:hover {
-transition: .5s;
+  transition: 0.5s;
 }
 
 .btn-coffee {
@@ -93,7 +92,7 @@ transition: .5s;
   border: 2px solid hotpink;
   text-align: center;
   font-size: 2rem;
-  padding-top: 2rem;
+  padding: 2rem 0 2rem 0;
 }
 
 p {
@@ -101,6 +100,35 @@ p {
   margin: auto;
 }
 
+.intro-container {
+  border: 1px solid blueviolet;
+  text-align: center;
+  height: auto;
+}
+
+.intro-message {
+  color: white;
+  margin: auto;
+}
+
 .hidden {
-  visibility: hidden;
+ visibility: hidden;
+  /* content-visibility: hidden; */
+}
+
+.over-message {
+  color: #ea9d9d;
+  text-align: center;
+  font-size: 3rem;
+  margin: auto;
+}
+
+.btn-restart {
+  background-color: lightskyblue;
+  border: none;
+  font-size: 1.5rem;
+  border-radius: 1.5rem;
+  cursor: pointer;
+  padding: 1rem 4rem;
+  margin: 2rem;
 }

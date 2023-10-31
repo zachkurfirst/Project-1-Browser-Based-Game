@@ -20,54 +20,57 @@ let playerChoices = []; // array of options
 let computerString;
 let playerString;
 
-let level;
-let highScore; 
+let score;
+let highScore;
+
+let timer;
+let interval;
 
 /*----- cached elements  -----*/
 // Select and save elements in variables that need to be accessed in JS more than once
 
-const levelEl = document.querySelector("#current-level");
-console.log("level element: ", levelEl);
+const scoreEl = document.querySelector("#current-score");
+console.log("score element: ", scoreEl);
 
 const highScoreEl = document.querySelector("#high-score");
 console.log("high score element: ", highScoreEl);
 
-const messageEl = document.querySelector("#game-message");
-console.log("game message: ", messageEl);
+const gameOverEl = document.querySelector("#game-over");
+console.log("game over message: ", gameOverEl);
 
 const gameBtnEls = document.querySelectorAll("#game-choices button");
 console.log("button elements: ", gameBtnEls);
 
-const restartBtnEl = document.querySelector("#restart");
-console.log("restart button: ", restartBtnEl);
+const tryAgainBtnEl = document.querySelector("#try-again");
+console.log("try again button: ", tryAgainBtnEl);
+
+const introMsgEl = document.querySelector("#description");
+console.log("intro message: ", introMsgEl);
 
 /*----- event listeners -----*/
+// Event listener for player button click
 gameBtnEls.forEach(function (btn) {
-  //    console.log('button value: ', btn.value)
+  // console.log('button value: ', btn.value)
   btn.addEventListener("click", playerTurn);
 });
 
-// imgEls.forEach(function (img) {
-//     //    console.log('button value: ', btn.value)
-//     img.addEventListener("click", playerTurn);
-//   });
+tryAgainBtnEl.addEventListener("click", restartGame);
 
 /*----- functions -----*/
-// init
-init(); // -> starts game when JS loads
+// init -> start game when JS loads
+init();
 
 function init() {
-  //reset turn arrays and set level back to start
+  //reset choices arrays and set level back to start
   computerChoices = [];
   playerChoices = [];
-  level = 1;
-
+  score = 0;
   // TODO: shouldn't be set to 0, should be set to existing high score
   highScore = 0;
 
   //   console.log("computer turn: ", computerChoices);
   //   console.log("player turn: ", playerChoices);
-  //   console.log("level: ", level);
+  //   console.log("score: ", score);
   //   console.log("high score: ", highScore);
   console.log("game has started!");
 
@@ -75,8 +78,7 @@ function init() {
   render();
 }
 
-// runGame
-// game loop function -> the game logic lives here
+// runGame -> game loop function -> the game logic lives here
 function runGame() {
   console.log("game is running!");
 
@@ -84,12 +86,18 @@ function runGame() {
   //   render(); // as the game is changing, the render is effecting what is displayed on the page
 }
 
-// render
-// trigger all render helper functions (updating stats, etc.)
+// render -> trigger all render helper functions (updating stats, etc.)
 function render() {
   console.log("game is rendering");
 
   renderScoreboard();
+}
+
+// renderScoreboard
+function renderScoreboard() {
+  console.log("render scoreboard totals");
+  scoreEl.textContent = score;
+  highScoreEl.textContent = highScore;
 }
 
 // computerTurn
@@ -99,20 +107,20 @@ function computerTurn() {
   //   console.log("random computer choice index: ", rdmChoice);
   //   console.log("random computer choice: ", options[rdmChoice]);
   computerChoices.push(options[rdmChoice]);
-  console.log('computer choices: ', computerChoices);
+  console.log("computer choice array: ", computerChoices);
   computerString = computerChoices.join("-"); // -> turn computerChoices array into a string
-  console.log('computer choices: ', computerString);
+  console.log("computer choice string: ", computerString);
   return computerString;
 }
 
-// playerTurn
-// start with logging the name of the option on click
+// playerTurn -> start with logging the name of the option on click
 function playerTurn(event) {
   //   console.log(event.target.id);
+
   playerChoices.push(event.target.id);
-  console.log('player choices: ', playerChoices);
+  console.log("player choice array: ", playerChoices);
   playerString = playerChoices.join("-"); // -> turn playerChoices array into a string
-  console.log('player choices: ', playerString);
+  console.log("player choice string: ", playerString);
   compareChoices();
 }
 
@@ -122,9 +130,11 @@ function playerTurn(event) {
 // If !==, game over
 function compareChoices() {
   if (playerString === computerString) {
-    level++;
-    if (level > highScore) {
-      highScore = level;
+    score++;
+    if (score > highScore) {
+      localStorage.setItem("highScore", score);
+      highScore = localStorage.getItem("highScore");
+      console.log(localStorage, highScore);
     }
     updateScoreboard();
   } else {
@@ -132,22 +142,28 @@ function compareChoices() {
   }
 }
 
-// renderScoreboard
-function renderScoreboard() {
-  console.log("render scoreboard totals");
-  levelEl.textContent = level;
-  highScoreEl.textContent = highScore;
-}
-
 // updateScoreboard -> advance to next level, update high score (if applicable)
 function updateScoreboard() {
   console.log("update scoreboard totals");
-  levelEl.textContent = level;
+  scoreEl.textContent = score;
   highScoreEl.textContent = highScore;
   computerTurn();
 }
+
 // nextLevel
+
 // gameOver
 function gameOver() {
   console.log("game over!");
+  gameOverEl.classList.remove("hidden");
+  tryAgainBtnEl.classList.remove("hidden");
+  introMsgEl.classList.add("hidden");
+}
+
+//restartGame
+function restartGame() {
+  introMsgEl.classList.remove("hidden");
+  gameOverEl.classList.add("hidden");
+  tryAgainBtnEl.classList.add("hidden");
+  init();
 }
