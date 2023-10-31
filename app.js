@@ -47,6 +47,18 @@ console.log("try again button: ", tryAgainBtnEl);
 const introMsgEl = document.querySelector("#description");
 console.log("intro message: ", introMsgEl);
 
+const coffeeBtnEl = document.querySelector("#coffee");
+console.log(coffeeBtnEl);
+
+const bagelBtnEl = document.querySelector("#bagel");
+console.log(bagelBtnEl);
+
+const pizzaBtnEl = document.querySelector("#pizza");
+console.log(pizzaBtnEl);
+
+const sushiBtnEl = document.querySelector("#sushi");
+console.log(sushiBtnEl);
+
 /*----- event listeners -----*/
 // Event listener for player button click
 gameBtnEls.forEach(function (btn) {
@@ -113,16 +125,29 @@ function computerTurn() {
   //     rdmChoice = Math.floor(Math.random() * options.length);
   //     computerChoices.push(options[rdmChoice]), 2000
   //   })
-  
+
   computerChoices.push(options[rdmChoice]);
   console.log("computer choice array: ", computerChoices);
   computerString = computerChoices.join("-"); // -> turn computerChoices array into a string
   console.log("computer choice string: ", computerString);
   // for of loop with set timeout
-  computerChoices.forEach(function (computerChoice, i = 1) {
+
+  computerChoices.forEach(function (computerChoice, i) {
     // for (let i = 1; i <= computerChoices.length; i++) {
-    setTimeout(function () {
-      console.log("computer choice iterated: ", computerChoice);
+    setInterval(function () {
+      if (computerChoice === options[0]) {
+        coffeeBtnEl.style.backgroundColor = "green";
+        // // setTimeout(function () {
+        //   coffeeBtnEl.style.backgroundColor = "#d9ead3ff";
+        // };
+      } else if (computerChoice === options[1]) {
+        bagelBtnEl.style.backgroundColor = "gold";
+      } else if (computerChoice === options[2]) {
+        pizzaBtnEl.style.backgroundColor = "red";
+      } else {
+        sushiBtnEl.style.backgroundColor = "blue";
+      }
+      // console.log("computer choice iterated: ", computerChoice);
     }, i * 2000);
   });
 
