@@ -106,17 +106,25 @@ function computerTurn() {
   const rdmChoice = Math.floor(Math.random() * options.length);
   //   console.log("random computer choice index: ", rdmChoice);
   //   console.log("random computer choice: ", options[rdmChoice]);
+
+  // ATTEMPT: setTimeout on function start
+  // let rdmChoice;
+  // setTimeout(function(){
+  //     rdmChoice = Math.floor(Math.random() * options.length);
+  //     computerChoices.push(options[rdmChoice]), 2000
+  //   })
+  
   computerChoices.push(options[rdmChoice]);
   console.log("computer choice array: ", computerChoices);
   computerString = computerChoices.join("-"); // -> turn computerChoices array into a string
   console.log("computer choice string: ", computerString);
-// for of loop with set timeout
-  for (computerChoice of computerChoices) {
-    // console.log('computer choice iterated: ', computerChoice)
-    setTimeout(function(){
-      console.log('computer choice iterated: ', computerChoice)
-    }, 2000)
-  }
+  // for of loop with set timeout
+  computerChoices.forEach(function (computerChoice, i = 1) {
+    // for (let i = 1; i <= computerChoices.length; i++) {
+    setTimeout(function () {
+      console.log("computer choice iterated: ", computerChoice);
+    }, i * 2000);
+  });
 
   // on each new computer turn, erase player history
   playerChoices = [];
@@ -127,7 +135,6 @@ function computerTurn() {
 // playerTurn -> start with logging the name of the option on click
 function playerTurn(event) {
   //   console.log(event.target.id);
-
 
   playerChoices.push(event.target.id);
   console.log("player choice array: ", playerChoices);
