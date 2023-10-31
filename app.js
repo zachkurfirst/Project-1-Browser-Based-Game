@@ -78,7 +78,12 @@ function init() {
   playerChoices = [];
   score = 0;
   // TODO: shouldn't be set to 0, should be set to existing high score
-  highScore = 0;
+  if (highScore = undefined) {
+    highScore = 0
+  } else {
+    highScore = localStorage.getItem("highScore");
+  }
+  console.log('init: ', highScore)
 
   //   console.log("computer turn: ", computerChoices);
   //   console.log("player turn: ", playerChoices);
@@ -134,7 +139,7 @@ function computerTurn() {
 
   computerChoices.forEach(function (computerChoice, i) {
     // for (let i = 1; i <= computerChoices.length; i++) {
-    setInterval(function () {
+    setTimeout(function () {
       if (computerChoice === options[0]) {
         coffeeBtnEl.style.backgroundColor = "green";
         // // setTimeout(function () {
