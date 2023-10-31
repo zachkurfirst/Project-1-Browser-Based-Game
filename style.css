@@ -23,7 +23,7 @@ body {
 }
 
 .container {
-  margin: 0 auto;
+  margin: auto;
 }
 
 .btns-container {
@@ -115,7 +115,7 @@ p {
 .over-message {
   color: #ea9d9d;
   text-align: center;
-  font-size: 3rem;
+  font-size: 2.5rem;
   margin: auto;
 }
 
@@ -126,7 +126,7 @@ p {
   border-radius: 1.5rem;
   cursor: pointer;
   padding: 1rem 4rem;
-  margin: 2rem;
+  margin: 1rem 0 2rem 0;
 }
 
 .btn-restart:hover {

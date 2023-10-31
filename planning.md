@@ -44,9 +44,8 @@ The game will display the high score. If the player advances to a level greater 
 
 ## To-Do:
 - Display CPU "choices" in the UI, one by one
-- Figured out how to store high score in localStorage, but with current set up init is running on reload and setting highScore = 0 -> try to find workaround so that highScore remains as reading what's in localStorage
-- Log each player turn
-    - Run dynamic compare that returns false once string doesn't match
+- [DONE] Figured out how to store high score in localStorage, but with current set up init is running on reload and setting highScore = 0 -> try to find workaround so that highScore remains as reading what's in localStorage
+- [DONE] Log each player turn and compare string results with computer
 - Audio on click (both computer and player choices)
 - Animations for click or game over?
 - CSS improvements in intro container

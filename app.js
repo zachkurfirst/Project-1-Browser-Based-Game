@@ -112,9 +112,9 @@ function render() {
 
 // renderScoreboard
 function renderScoreboard() {
-  console.log("render scoreboard totals");
   scoreEl.textContent = score;
   highScoreEl.textContent = highScore;
+  console.log("render score: ", score, "render high score: ", highScore);
 }
 
 // computerTurn
@@ -140,11 +140,9 @@ function computerTurn() {
   computerChoices.forEach(function (computerChoice, i) {
     // for (let i = 1; i <= computerChoices.length; i++) {
     setTimeout(function () {
+      // check computer choice value and set background color
       if (computerChoice === options[0]) {
         coffeeBtnEl.style.backgroundColor = "green";
-        // // setTimeout(function () {
-        //   coffeeBtnEl.style.backgroundColor = "#d9ead3ff";
-        // };
       } else if (computerChoice === options[1]) {
         bagelBtnEl.style.backgroundColor = "gold";
       } else if (computerChoice === options[2]) {
@@ -153,7 +151,7 @@ function computerTurn() {
         sushiBtnEl.style.backgroundColor = "blue";
       }
       // console.log("computer choice iterated: ", computerChoice);
-    }, i * 2000);
+    }, i * 1000)
   });
 
   // on each new computer turn, erase player history
@@ -201,9 +199,9 @@ function compareChoices() {
 
 // updateScoreboard -> advance to next level, update high score (if applicable)
 function updateScoreboard() {
-  console.log("update scoreboard totals");
   scoreEl.textContent = score;
   highScoreEl.textContent = highScore;
+  console.log("update score: ", score, "update highScore: ", highScore);
   computerTurn();
 }
 
