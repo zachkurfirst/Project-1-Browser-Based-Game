@@ -9,7 +9,10 @@ body {
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 16px;
   margin: 0;
-  min-height: 50vh;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .game-title {
@@ -25,12 +28,15 @@ body {
 
 .btns-container {
   border: 2px solid greenyellow;
-  display: flex;
-  flex-wrap: wrap;
+  /* display: flex; */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  /* flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
   gap: 2rem;
-
+  max-width: 1080px;
 }
 
 .btn {
@@ -87,10 +93,12 @@ transition: .5s;
   border: 2px solid hotpink;
   text-align: center;
   font-size: 2rem;
+  padding-top: 2rem;
 }
 
 p {
-  color: white
+  color: white;
+  margin: auto;
 }
 
 .hidden {

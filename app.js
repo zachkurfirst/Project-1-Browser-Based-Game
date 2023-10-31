@@ -21,7 +21,7 @@ let computerString;
 let playerString;
 
 let level;
-let highScore;
+let highScore; 
 
 /*----- cached elements  -----*/
 // Select and save elements in variables that need to be accessed in JS more than once
@@ -37,9 +37,6 @@ console.log("game message: ", messageEl);
 
 const gameBtnEls = document.querySelectorAll("#game-choices button");
 console.log("button elements: ", gameBtnEls);
-
-// const imgEls = document.querySelectorAll('#game-choices img')
-// console.log(imgEls)
 
 const restartBtnEl = document.querySelector("#restart");
 console.log("restart button: ", restartBtnEl);
@@ -90,7 +87,7 @@ function runGame() {
 // render
 // trigger all render helper functions (updating stats, etc.)
 function render() {
-  console.log("game is rendering!");
+  console.log("game is rendering");
 
   renderScoreboard();
 }
@@ -102,20 +99,20 @@ function computerTurn() {
   //   console.log("random computer choice index: ", rdmChoice);
   //   console.log("random computer choice: ", options[rdmChoice]);
   computerChoices.push(options[rdmChoice]);
-  console.log(computerChoices);
+  console.log('computer choices: ', computerChoices);
   computerString = computerChoices.join("-"); // -> turn computerChoices array into a string
-  console.log(computerString);
+  console.log('computer choices: ', computerString);
   return computerString;
 }
 
 // playerTurn
 // start with logging the name of the option on click
 function playerTurn(event) {
-  console.log(event.target.id);
+  //   console.log(event.target.id);
   playerChoices.push(event.target.id);
-  console.log(playerChoices);
+  console.log('player choices: ', playerChoices);
   playerString = playerChoices.join("-"); // -> turn playerChoices array into a string
-  console.log(playerString);
+  console.log('player choices: ', playerString);
   compareChoices();
 }
 
@@ -124,12 +121,12 @@ function playerTurn(event) {
 // If ===, call computerTurn function
 // If !==, game over
 function compareChoices() {
-  if (playerChoices === computerChoices) {
+  if (playerString === computerString) {
     level++;
     if (level > highScore) {
       highScore = level;
     }
-    renderScoreboard();
+    updateScoreboard();
   } else {
     gameOver();
   }
@@ -137,14 +134,18 @@ function compareChoices() {
 
 // renderScoreboard
 function renderScoreboard() {
-  console.log("render scoreboard totals!");
+  console.log("render scoreboard totals");
   levelEl.textContent = level;
   highScoreEl.textContent = highScore;
-  4;
 }
 
 // updateScoreboard -> advance to next level, update high score (if applicable)
-function updateScoreboard() {}
+function updateScoreboard() {
+  console.log("update scoreboard totals");
+  levelEl.textContent = level;
+  highScoreEl.textContent = highScore;
+  computerTurn();
+}
 // nextLevel
 // gameOver
 function gameOver() {
