@@ -24,7 +24,8 @@ body {
 
 .subway-n,
 .subway-y,
-.subway-c {
+.subway-c,
+.countdown-number {
   display: inline-block;
   border-radius: 50%;
   display: inline-block;
@@ -92,12 +93,22 @@ body {
   /* border: 2px solid hotpink; */
   text-align: center;
   font-size: 2rem;
-  padding: 0 0 1.5rem 0;
+  /* padding: 0 0 1.5rem 0; */
 }
 
 p {
   color: white;
   margin: auto;
+}
+
+.countdown-container {
+  text-align: center;
+  font-size: 2rem;
+  margin: 2rem;
+}
+
+.countdown-number {
+  background-color: black;
 }
 
 .btns-container {
@@ -163,26 +174,48 @@ button:hover {
 }
 
 .shake {
-  animation: shake 1s
+  animation: shake 1s;
 }
 
 @keyframes shake {
-  0% { transform: translate(1px, 1px) rotate(0deg); }
-  10% { transform: translate(-1px, -2px) rotate(-1deg); }
-  20% { transform: translate(-3px, 0px) rotate(1deg); }
-  30% { transform: translate(3px, 2px) rotate(0deg); }
-  40% { transform: translate(1px, -1px) rotate(1deg); }
-  50% { transform: translate(-1px, 2px) rotate(-1deg); }
-  60% { transform: translate(-3px, 1px) rotate(0deg); }
-  70% { transform: translate(3px, 1px) rotate(-1deg); }
-  80% { transform: translate(-1px, -1px) rotate(1deg); }
-  90% { transform: translate(1px, 2px) rotate(0deg); }
-  100% { transform: translate(1px, -2px) rotate(-1deg); }
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
 }
 
 .credits {
   margin: 4rem 0 1rem 2rem;
-  font-size: .75rem;
+  font-size: 0.75rem;
 }
 
 .credit-title {

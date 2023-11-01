@@ -22,7 +22,7 @@ let playerString;
 
 let score;
 let highScore;
-
+let countdown;
 let timer;
 let interval;
 
@@ -36,28 +36,31 @@ const highScoreEl = document.querySelector("#high-score");
 console.log("high score element: ", highScoreEl);
 
 const gameOverEl = document.querySelector("#game-over");
-console.log("game over message: ", gameOverEl);
+console.log("game over message element: ", gameOverEl);
 
 const gameBtnEls = document.querySelectorAll("#game-choices button");
 console.log("button elements: ", gameBtnEls);
 
 const tryAgainBtnEl = document.querySelector("#try-again");
-console.log("try again button: ", tryAgainBtnEl);
+console.log("try again button element: ", tryAgainBtnEl);
 
 const introMsgEl = document.querySelector("#description");
-console.log("intro message: ", introMsgEl);
+console.log("intro message element: ", introMsgEl);
 
 const coffeeBtnEl = document.querySelector("#coffee");
-console.log(coffeeBtnEl);
+console.log("coffee btn element: ", coffeeBtnEl);
 
 const bagelBtnEl = document.querySelector("#bagel");
-console.log(bagelBtnEl);
+console.log("bagel btn element: ", bagelBtnEl);
 
 const pizzaBtnEl = document.querySelector("#pizza");
-console.log(pizzaBtnEl);
+console.log("pizza btn element: ", pizzaBtnEl);
 
 const sushiBtnEl = document.querySelector("#sushi");
-console.log(sushiBtnEl);
+console.log("sushi btn element: ", sushiBtnEl);
+
+const countdownEl = document.querySelector("#countdown");
+console.log("countdown element: ", countdownEl);
 
 /*----- event listeners -----*/
 // Event listener for player button click
@@ -89,17 +92,49 @@ function init() {
   //   console.log("player turn: ", playerChoices);
   //   console.log("score: ", score);
   //   console.log("high score: ", highScore);
+
+  countdown = 10;
+
   console.log("game has started!");
 
   runGame();
   render();
 }
 
+// startCountdown
+// function startCountdown() {
+//   setInterval(function() {
+//     countdown --
+//     console.log(countdown)
+//     if (countdown < 1) {
+//       clearInterval(countdown);
+//       computerTurn();
+//     }
+//   }, 1000)
+// }
+
+const myInterval = setInterval(startCountdown, 1000) // setting interval to run every 1000 ms
+
+function startCountdown() { // -> start, until < 1 and then run stop countdown to clear interval
+  countdown --
+  console.log(countdown)
+  if (countdown < 1) {
+    computerTurn();
+    stopCountdown();
+  }
+}
+
+function stopCountdown() {
+  clearInterval(myInterval)
+}
+
 // runGame -> game loop function -> the game logic lives here
 function runGame() {
   console.log("game is running!");
 
-  computerTurn();
+  // startCountdown();
+
+  // computerTurn();
   //   render(); // as the game is changing, the render is effecting what is displayed on the page
 }
 
@@ -108,6 +143,7 @@ function render() {
   console.log("game is rendering");
 
   renderScoreboard();
+  renderCountdown();
 }
 
 // renderScoreboard
@@ -115,6 +151,11 @@ function renderScoreboard() {
   scoreEl.textContent = score;
   highScoreEl.textContent = highScore;
   console.log("render score: ", score, "render high score: ", highScore);
+}
+
+function renderCountdown() {
+  countdownEl.textContent = countdown;
+  console.log("render countdown: ", countdown);
 }
 
 // computerTurn
@@ -222,7 +263,6 @@ function gameOver() {
     gameOverEl.removeAttribute("hidden");
     tryAgainBtnEl.removeAttribute("hidden");
     introMsgEl.setAttribute("hidden", "");
-
   }, 500);
 }
 
