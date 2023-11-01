@@ -140,19 +140,24 @@ function computerTurn() {
   computerChoices.forEach(function (computerChoice, i) {
     // for (let i = 1; i <= computerChoices.length; i++) {
     setTimeout(function () {
-      // check computer choice value and set background color
-      if (computerChoices[i] === "coffee") {
+      // check computer choice value and set the shake class
+      if (computerChoice === "coffee") {
         coffeeBtnEl.classList.add("shake");
-      } else if (computerChoices[i] === "bagel") {
+        coffeeBtnEl.classList.remove('shake')
+      }
+      if (computerChoice === "bagel") {
         bagelBtnEl.classList.add("shake");
-      } else if (computerChoices[i] === "pizza") {
+        bagelBtnEl.classList.remove('shake');
+      }
+      if (computerChoice === "pizza") {
         pizzaBtnEl.classList.add("shake");
-      } else {
+      }
+      if (computerChoice === "sushi") {
         sushiBtnEl.classList.add("shake");
       }
       // console.log("computer choice iterated: ", computerChoice);
     }, i * 1000);
-    console.log("testing", computerChoices, i);
+    // console.log("testing", computerChoices, i);
   });
 
   // on each new computer turn, erase player history
