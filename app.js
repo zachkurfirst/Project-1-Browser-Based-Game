@@ -62,6 +62,9 @@ console.log("sushi btn element: ", sushiBtnEl);
 const countdownEl = document.querySelector("#countdown");
 console.log("countdown element: ", countdownEl);
 
+const countdownPromptEl = document.querySelector("#countdown-prompt");
+console.log("countdown prompt element: ", countdownPromptEl);
+
 /*----- event listeners -----*/
 // Event listener for player button click
 gameBtnEls.forEach(function (btn) {
@@ -113,11 +116,14 @@ function init() {
 //   }, 1000)
 // }
 
-const myInterval = setInterval(startCountdown, 1000) // setting interval to run every 1000 ms
+// setting interval to run every 1000 ms
+const myInterval = setInterval(startCountdown, 1000);
 
-function startCountdown() { // -> start, until < 1 and then run stop countdown to clear interval
-  countdown --
-  console.log(countdown)
+// start countdown until < 1 and then run stop countdown to clear interval
+function startCountdown() {
+  countdown--;
+  countdownEl.textContent = countdown;
+  console.log(countdown);
   if (countdown < 1) {
     computerTurn();
     stopCountdown();
@@ -125,7 +131,8 @@ function startCountdown() { // -> start, until < 1 and then run stop countdown t
 }
 
 function stopCountdown() {
-  clearInterval(myInterval)
+  clearInterval(myInterval);
+  countdownPromptEl.setAttribute("hidden", "");
 }
 
 // runGame -> game loop function -> the game logic lives here
@@ -271,5 +278,6 @@ function restartGame() {
   introMsgEl.removeAttribute("hidden");
   gameOverEl.setAttribute("hidden", "");
   tryAgainBtnEl.setAttribute("hidden", "");
+  countdownPromptEl.removeAttribute("hidden", "");
   init();
 }
