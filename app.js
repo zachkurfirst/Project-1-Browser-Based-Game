@@ -78,12 +78,12 @@ function init() {
   playerChoices = [];
   score = 0;
   // TODO: shouldn't be set to 0, should be set to existing high score
-  if (highScore = undefined) {
-    highScore = 0
+  if ((highScore = undefined)) {
+    highScore = 0;
   } else {
     highScore = localStorage.getItem("highScore");
   }
-  console.log('init: ', highScore)
+  console.log("init: ", highScore);
 
   //   console.log("computer turn: ", computerChoices);
   //   console.log("player turn: ", playerChoices);
@@ -141,17 +141,18 @@ function computerTurn() {
     // for (let i = 1; i <= computerChoices.length; i++) {
     setTimeout(function () {
       // check computer choice value and set background color
-      if (computerChoice === options[0]) {
-        coffeeBtnEl.style.backgroundColor = "green";
-      } else if (computerChoice === options[1]) {
-        bagelBtnEl.style.backgroundColor = "gold";
-      } else if (computerChoice === options[2]) {
-        pizzaBtnEl.style.backgroundColor = "red";
+      if (computerChoices[i] === "coffee") {
+        coffeeBtnEl.classList.add("shake");
+      } else if (computerChoices[i] === "bagel") {
+        bagelBtnEl.classList.add("shake");
+      } else if (computerChoices[i] === "pizza") {
+        pizzaBtnEl.classList.add("shake");
       } else {
-        sushiBtnEl.style.backgroundColor = "blue";
+        sushiBtnEl.classList.add("shake");
       }
       // console.log("computer choice iterated: ", computerChoice);
-    }, i * 1000)
+    }, i * 1000);
+    console.log("testing", computerChoices, i);
   });
 
   // on each new computer turn, erase player history

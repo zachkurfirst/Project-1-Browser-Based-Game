@@ -22,8 +22,19 @@ body {
   text-transform: uppercase;
 }
 
-.subway-letters {
+/* .subway-letters {
   background-color: black;
+  border-radius: 50%;
+  display: inline-block;
+  width: 75px;
+  height: 75px;
+  line-height: 75px;
+} */
+
+.subway-n,
+.subway-y,
+.subway-c {
+  display: inline-block;
   border-radius: 50%;
   display: inline-block;
   width: 75px;
@@ -31,9 +42,19 @@ body {
   line-height: 75px;
 }
 
-/* .subway-n {
+.subway-n {
   background-color: green;
-} */
+  margin-right: 8px;
+}
+
+.subway-y {
+  background-color: blue;
+  margin-right: 8px;
+}
+
+.subway-c {
+  background-color: red;
+}
 
 .container {
   margin: auto;
@@ -144,5 +165,23 @@ p {
 
 .btn-restart:hover {
   background-color: #3d3de2;
-  color: white
+  color: white;
+}
+
+.shake {
+  animation: shake 1s
+}
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
 }

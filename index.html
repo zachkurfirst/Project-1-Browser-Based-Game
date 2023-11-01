@@ -3,14 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NYC Simon</title>
+    <title>SIMON: NYC</title>
     <link rel="stylesheet" href="./style.css" />
     <script defer src="./app.js"></script>
   </head>
 
   <body>
     <header>
-      <h1 class="game-title">simon: <span class="subway-letters">nyc</span></h1>
+      <!-- title section -->
+      <h1 class="game-title">
+        Simon: <span class="subway-n">n</span><span class="subway-y">y</span><span class="subway-c">c</span>
+      </h1>
     </header>
     <main class="container">
       <!-- intro section (description and restart prompts alternate visibilty) -->
@@ -20,11 +23,12 @@
         </h2>
         <h2 id="game-over" class="over-message" hidden>Game over!</h2>
         <button type="button" id="try-again" class="btn-restart" hidden>
-          Try Again</button>
+          Try Again
+        </button>
       </section>
       <!-- button section -->
       <section id="game-choices" class="btns-container">
-        <button type="button" class="btn btn-coffee" id="coffee">
+        <button type="button" class="btn btn-coffee blink" id="coffee">
           <img src="docs/assets/coffee.png" alt="coffee" class="img" id="coffee" />
         </button>
         <button type="button" class="btn btn-bagel" id="bagel">
