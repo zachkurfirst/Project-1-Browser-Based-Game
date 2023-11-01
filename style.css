@@ -22,15 +22,6 @@ body {
   text-transform: uppercase;
 }
 
-/* .subway-letters {
-  background-color: black;
-  border-radius: 50%;
-  display: inline-block;
-  width: 75px;
-  height: 75px;
-  line-height: 75px;
-} */
-
 .subway-n,
 .subway-y,
 .subway-c {
@@ -58,6 +49,55 @@ body {
 
 .container {
   margin: auto;
+  max-width: 590px;
+}
+
+.intro-container {
+  /* border: 1px solid blueviolet; */
+  text-align: center;
+  height: auto;
+  /* max-width: 600px; */
+}
+
+.intro-message {
+  color: white;
+  font-size: 1.25rem;
+  margin: auto;
+  padding-bottom: 2rem;
+}
+
+.over-message {
+  color: #ea9d9d;
+  text-align: center;
+  font-size: 2.5rem;
+  margin: auto;
+}
+
+.btn-restart {
+  background-color: lightskyblue;
+  border: none;
+  font-size: 1.5rem;
+  border-radius: 1.5rem;
+  cursor: pointer;
+  padding: 1rem 4rem;
+  margin: 1rem 0 2rem 0;
+}
+
+.btn-restart:hover {
+  background-color: #3d3de2;
+  color: white;
+}
+
+.score-container {
+  /* border: 2px solid hotpink; */
+  text-align: center;
+  font-size: 2rem;
+  padding: 0 0 1.5rem 0;
+}
+
+p {
+  color: white;
+  margin: auto;
 }
 
 .btns-container {
@@ -70,7 +110,7 @@ body {
   justify-content: center;
   align-items: center; */
   gap: 1rem 1rem;
-  max-width: 980px;
+  /* max-width: 980px; */
 }
 
 .btn {
@@ -85,7 +125,7 @@ button:hover {
 }
 
 .btn-coffee {
-  background-color: #d9ead3ff;
+  background-color: rgb(196, 218, 188);
 }
 
 .btn-coffee:hover {
@@ -122,52 +162,6 @@ button:hover {
   max-width: 125px;
 }
 
-.score-container {
-  border: 2px solid hotpink;
-  text-align: center;
-  font-size: 2rem;
-  padding: 2rem 0 2rem 0;
-}
-
-p {
-  color: white;
-  margin: auto;
-}
-
-.intro-container {
-  border: 1px solid blueviolet;
-  text-align: center;
-  height: auto;
-}
-
-.intro-message {
-  color: white;
-  margin: auto;
-  padding-bottom: 2rem;
-}
-
-.over-message {
-  color: #ea9d9d;
-  text-align: center;
-  font-size: 2.5rem;
-  margin: auto;
-}
-
-.btn-restart {
-  background-color: lightskyblue;
-  border: none;
-  font-size: 1.5rem;
-  border-radius: 1.5rem;
-  cursor: pointer;
-  padding: 1rem 4rem;
-  margin: 1rem 0 2rem 0;
-}
-
-.btn-restart:hover {
-  background-color: #3d3de2;
-  color: white;
-}
-
 .shake {
   animation: shake 1s
 }
@@ -184,4 +178,21 @@ p {
   80% { transform: translate(-1px, -1px) rotate(1deg); }
   90% { transform: translate(1px, 2px) rotate(0deg); }
   100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+.credits {
+  margin: 4rem 0 1rem 2rem;
+  font-size: .75rem;
+}
+
+.credit-title {
+  text-decoration: underline;
+}
+
+a {
+  color: white;
+}
+
+a:hover {
+  color: #7598f8;
 }

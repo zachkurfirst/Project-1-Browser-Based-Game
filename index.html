@@ -12,24 +12,36 @@
     <header>
       <!-- title section -->
       <h1 class="game-title">
-        Simon: <span class="subway-n">n</span><span class="subway-y">y</span><span class="subway-c">c</span>
+        Simon: <span class="subway-n">n</span><span class="subway-y">y</span
+        ><span class="subway-c">c</span>
       </h1>
     </header>
     <main class="container">
       <!-- intro section (description and restart prompts alternate visibilty) -->
       <section class="intro-container">
-        <h2 id="description" class="intro-message">
-          Match the computer's choice sequence to earn a point.
-        </h2>
+        <p id="description" class="intro-message">
+          Match the computer's choice sequence to earn a poin and advance to the
+          next round.
+        </p>
         <h2 id="game-over" class="over-message" hidden>Game over!</h2>
         <button type="button" id="try-again" class="btn-restart" hidden>
           Try Again
         </button>
       </section>
+      <!-- scoreboard section -->
+      <section id="score-state" class="score-container">
+        <p>Score: <span id="current-score">...</span></p>
+        <p>High Score: <span id="high-score">...</span></p>
+      </section>
       <!-- button section -->
       <section id="game-choices" class="btns-container">
         <button type="button" class="btn btn-coffee" id="coffee">
-          <img src="docs/assets/coffee.png" alt="coffee" class="img" id="coffee" />
+          <img
+            src="docs/assets/coffee.png"
+            alt="coffee"
+            class="img"
+            id="coffee"
+          />
         </button>
         <button type="button" class="btn btn-bagel" id="bagel">
           <img src="docs/assets/bagel.png" alt="bagel" class="img" id="bagel" />
@@ -41,11 +53,17 @@
           <img src="docs/assets/sushi.png" alt="sushi" class="img" id="sushi" />
         </button>
       </section>
-      <!-- scoreboard section -->
-      <section id="score-state" class="score-container">
-        <p>Score: <span id="current-score">...</span></p>
-        <p>High Score: <span id="high-score">...</span></p>
-      </section>
     </main>
+    <footer class="credits">
+      <p class="credit-title">Image credit</p>
+      <p>Icons created by Smashicons via Flaticon:
+        <a href="https://www.flaticon.com/free-icons/mug" target="_blank" title="mug icons">mug</a>,
+        <a href="https://www.flaticon.com/free-icons/pizza" target="_blank" title="pizza icons">pizza</a>,
+        <a href="https://www.flaticon.com/free-icons/sushi" target="_blank" title="sushi icons">sushi</a>
+      </p>
+      <p>Icon created by Freepik via Flaticon:
+        <a href="https://www.flaticon.com/free-icons/bagel" target="_blank" title="bagel icons">bagel</a>
+      </p>
+    </footer>
   </body>
 </html>

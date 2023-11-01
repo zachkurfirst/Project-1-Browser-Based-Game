@@ -143,11 +143,9 @@ function computerTurn() {
       // check computer choice value and set the shake class
       if (computerChoice === "coffee") {
         coffeeBtnEl.classList.add("shake");
-        coffeeBtnEl.classList.remove('shake')
       }
       if (computerChoice === "bagel") {
         bagelBtnEl.classList.add("shake");
-        bagelBtnEl.classList.remove('shake');
       }
       if (computerChoice === "pizza") {
         pizzaBtnEl.classList.add("shake");
@@ -158,6 +156,10 @@ function computerTurn() {
       // console.log("computer choice iterated: ", computerChoice);
     }, i * 1000);
     // console.log("testing", computerChoices, i);
+    coffeeBtnEl.classList.remove("shake");
+    bagelBtnEl.classList.remove("shake");
+    pizzaBtnEl.classList.remove("shake");
+    sushiBtnEl.classList.remove("shake");
   });
 
   // on each new computer turn, erase player history
