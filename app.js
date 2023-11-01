@@ -83,7 +83,7 @@ function init() {
   } else {
     highScore = localStorage.getItem("highScore");
   }
-  console.log("init: ", highScore);
+  console.log("remember high score: ", highScore);
 
   //   console.log("computer turn: ", computerChoices);
   //   console.log("player turn: ", playerChoices);
@@ -217,10 +217,13 @@ function updateScoreboard() {
 
 // gameOver
 function gameOver() {
-  console.log("game over!");
-  gameOverEl.removeAttribute("hidden");
-  tryAgainBtnEl.removeAttribute("hidden");
-  introMsgEl.setAttribute("hidden", "");
+  setTimeout(function () {
+    console.log("game over!");
+    gameOverEl.removeAttribute("hidden");
+    tryAgainBtnEl.removeAttribute("hidden");
+    introMsgEl.setAttribute("hidden", "");
+
+  }, 500);
 }
 
 //restartGame

@@ -47,6 +47,6 @@ The game will display the high score. If the player advances to a level greater 
 - [DONE] Figured out how to store high score in localStorage, but with current set up init is running on reload and setting highScore = 0 -> try to find workaround so that highScore remains as reading what's in localStorage
 - [DONE] Log each player turn and compare string results with computer
 - Audio on click (both computer and player choices)
-- Animations for click or game over?
+- [DONE] Animations for computer choices
 - CSS improvements in intro container
 - Clean up variable naming?
