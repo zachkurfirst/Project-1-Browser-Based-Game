@@ -17,14 +17,17 @@ const options = ["coffee", "bagel", "pizza", "sushi"];
 let computerChoices = []; // array of options
 let playerChoices = []; // array of options
 
-let computerString;
-let playerString;
+let computerString = "";
+let playerString = "";
 
 let score;
 let highScore;
 let countdown;
 let timer;
 let interval;
+
+let arrPos = 0; // -> begin array position at 0 to indicate first choice
+let animateTimer;
 
 /*----- cached elements  -----*/
 // Select and save elements in variables that need to be accessed in JS more than once
@@ -67,10 +70,12 @@ console.log("countdown prompt element: ", countdownPromptEl);
 
 /*----- event listeners -----*/
 // Event listener for player button click
-gameBtnEls.forEach(function (btn) {
-  // console.log('button value: ', btn.value)
-  btn.addEventListener("click", playerTurn);
-});
+setTimeout(function () {
+  gameBtnEls.forEach(function (btn) {
+    // console.log('button value: ', btn.value)
+    btn.addEventListener("click", playerTurn);
+  });
+}, 3000);
 
 tryAgainBtnEl.addEventListener("click", restartGame);
 
@@ -96,7 +101,7 @@ function init() {
   //   console.log("score: ", score);
   //   console.log("high score: ", highScore);
 
-  countdown = 10;
+  countdown = 3;
 
   console.log("game has started!");
 
@@ -117,10 +122,9 @@ function init() {
 // }
 
 // setting interval to run every 1000 ms
-const myInterval = setInterval(startCountdown, 1000);
 
 // start countdown until < 1 and then run stop countdown to clear interval
-function startCountdown() {
+function countdownTimer() {
   countdown--;
   countdownEl.textContent = countdown;
   console.log(countdown);
@@ -131,7 +135,7 @@ function startCountdown() {
 }
 
 function stopCountdown() {
-  clearInterval(myInterval);
+  clearInterval(interval);
   countdownPromptEl.setAttribute("hidden", "");
 }
 
@@ -139,7 +143,8 @@ function stopCountdown() {
 function runGame() {
   console.log("game is running!");
 
-  // startCountdown();
+  // call countdownTimer() with setInterval
+  interval = setInterval(countdownTimer, 1000);
 
   // computerTurn();
   //   render(); // as the game is changing, the render is effecting what is displayed on the page
@@ -183,37 +188,115 @@ function computerTurn() {
   console.log("computer choice array: ", computerChoices);
   computerString = computerChoices.join("-"); // -> turn computerChoices array into a string
   console.log("computer choice string: ", computerString);
-  // for of loop with set timeout
 
-  computerChoices.forEach(function (computerChoice, i) {
-    // for (let i = 1; i <= computerChoices.length; i++) {
-    setTimeout(function () {
-      // check computer choice value and set the shake class
-      if (computerChoice === "coffee") {
-        coffeeBtnEl.classList.add("shake");
-      }
-      if (computerChoice === "bagel") {
-        bagelBtnEl.classList.add("shake");
-      }
-      if (computerChoice === "pizza") {
-        pizzaBtnEl.classList.add("shake");
-      }
-      if (computerChoice === "sushi") {
-        sushiBtnEl.classList.add("shake");
-      }
-      // console.log("computer choice iterated: ", computerChoice);
-    }, i * 1000);
-    // console.log("testing", computerChoices, i);
-    coffeeBtnEl.classList.remove("shake");
-    bagelBtnEl.classList.remove("shake");
-    pizzaBtnEl.classList.remove("shake");
-    sushiBtnEl.classList.remove("shake");
-  });
+  animateTimer = setInterval(animateChoice, 1500);
+  // console.log('arrPos line before round 2: ', arrPos)
+}
 
-  // on each new computer turn, erase player history
+
+const nodesDictionary = {
+  coffee: coffeeBtnEl,
+  bagel: bagelBtnEl,
+  pizza: sushiBtnEl,
+  sushi: sushiBtnEl,
+};
+
+const colorsDictionary = {
+  coffee: "green",
+  bagel: "gold",
+  pizza: "red",
+  sushi: "blue",
+};
+
+function clearHighlights() {
+  coffeeBtnEl.style.backgroundColor = "";
+  bagelBtnEl.style.backgroundColor = "";
+  pizzaBtnEl.style.backgroundColor = "";
+  sushiBtnEl.style.backgroundColor = "";
+}
+
+function animateChoice() {
+  console.log('current arrPos: ', arrPos, 'array length: ', computerChoices.length)
+  clearHighlights();
+  if (arrPos === computerChoices.length) {
+    // end turn
+    clearHighlights();
+    arrPos = 0;
+    console.log('removed all highlights: line 222')
+    resetForPlayer();
+    console.log("end computer turn");
+    return clearInterval(animateTimer);
+  } else {
+    console.log("start of cycle");
+    const currentMove = computerChoices[arrPos];
+    if (currentMove === "coffee") {
+      coffeeBtnEl.style.backgroundColor = "green";
+      console.log("highlight coffee");
+      setTimeout(function () {
+        coffeeBtnEl.style.backgroundColor = "";
+      }, 500);
+    }
+    if (currentMove === "bagel") {
+      bagelBtnEl.style.backgroundColor = "gold";
+      console.log("highlight bagel");
+      setTimeout(function () {
+        bagelBtnEl.style.backgroundColor = "";
+      }, 500);
+    }
+    if (currentMove === "pizza") {
+      pizzaBtnEl.style.backgroundColor = "red";
+      console.log("highlight pizza");
+      setTimeout(function () {
+        pizzaBtnEl.style.backgroundColor = "";
+      }, 500);
+    }
+    if (currentMove === "sushi") {
+      sushiBtnEl.style.backgroundColor = "blue";
+      console.log("highlight sushi");
+      setTimeout(function () {
+        sushiBtnEl.style.backgroundColor = "";
+      }, 500);
+    }
+    arrPos++;
+  }
+}
+
+// Removed as of 11/1 6:56pm
+//   if (computerChoices[arrPos] === "coffee") {
+//     coffeeBtnEl.style.backgroundColor = "green";
+//     console.log("highlight coffee");
+//     setTimeout(function (){
+//       removeComputerHighlight()
+//     })
+//   }
+//   if (computerChoices[arrPos] === "bagel") {
+//     bagelBtnEl.style.backgroundColor = "gold";
+//     console.log("highlight bagel");
+// setTimeout(function (){
+//   removeComputerHighlight()
+// })
+//   }
+//   if (computerChoices[arrPos] === "pizza") {
+//     pizzaBtnEl.style.backgroundColor = "red";
+//     console.log("highlight pizza");
+// setTimeout(function (){
+//   removeComputerHighlight()
+// })
+//   }
+//   if (computerChoices[arrPos] === "sushi") {
+//     sushiBtnEl.style.backgroundColor = "blue";
+//     console.log("highlight sushi");
+// setTimeout(function (){
+//   removeComputerHighlight()
+// })
+// console.log(computerChoices[arrPos]);
+// console.log("computer choice iterated: ", computerChoice);
+
+// on each new computer turn, erase player history
+function resetForPlayer() {
+  // NOTE: maybe enable event handler here (tbd)
   playerChoices = [];
   playerString = "";
-  return computerString;
 }
 
 // playerTurn -> start with logging the name of the option on click
@@ -266,6 +349,9 @@ function updateScoreboard() {
 // gameOver
 function gameOver() {
   setTimeout(function () {
+    gameBtnEls.forEach(function (btn) {
+      btn.removeEventListener("click", playerTurn);
+    });
     console.log("game over!");
     gameOverEl.removeAttribute("hidden");
     tryAgainBtnEl.removeAttribute("hidden");
@@ -280,4 +366,5 @@ function restartGame() {
   tryAgainBtnEl.setAttribute("hidden", "");
   countdownPromptEl.removeAttribute("hidden", "");
   init();
+  location.reload(); // QUESTION: should I remove init? Are we loading JS twice? Maybe move
 }
