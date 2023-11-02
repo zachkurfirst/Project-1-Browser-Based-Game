@@ -16,8 +16,11 @@ body {
   flex-direction: column;
 }
 
+h1 {
+  margin-bottom: 1rem;
+}
+
 .game-title {
-  border: 2px solid red;
   color: white;
   font-size: 3.5rem;
   text-align: center;
@@ -63,11 +66,30 @@ body {
   /* max-width: 600px; */
 }
 
+.instructions-container {
+  font-size: 1.5rem;
+  color: white;
+  margin-bottom: 1rem;
+}
+
 .intro-message {
   color: white;
-  font-size: 1.25rem;
-  margin: auto;
-  padding-bottom: 2rem;
+  font-size: 1rem;
+  margin: 0 50px;
+  /* padding-bottom: 2rem; */
+}
+
+ol {
+  list-style-position: inside;
+  text-align: left;
+}
+
+.good-luck {
+  font-size: 1.5rem;
+}
+
+.game-state-container {
+  text-align: center;
 }
 
 .over-message {
@@ -75,6 +97,21 @@ body {
   text-align: center;
   font-size: 2.5rem;
   margin: auto;
+}
+
+.btn-start {
+  background-color: lightskyblue;
+  border: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 1rem;
+  cursor: pointer;
+  padding: 1rem 4rem;
+  margin: 1rem 0 0.5rem 0;
+}
+
+.btn-start:hover {
+  background-color: #92b6f4;
 }
 
 .btn-restart {
@@ -85,7 +122,7 @@ body {
   border-radius: 1rem;
   cursor: pointer;
   padding: 1rem 4rem;
-  margin: 1rem 0 2rem 0;
+  margin-top: 1rem;
 }
 
 .btn-restart:hover {
@@ -93,10 +130,13 @@ body {
 }
 
 .score-container {
-  /* border: 2px solid hotpink; */
+  border: 2px solid lightskyblue;
+  /* border-radius: .5rem; */
   text-align: center;
-  font-size: 2rem;
-  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  margin: 1rem auto 1rem auto;
+  width: 40%;
+  padding: .25rem;
 }
 
 p {
@@ -139,17 +179,17 @@ p {
   /* background-color: #7b7a7a; */
 }
 
-button:hover {
+/* button:hover {
   transition: 0.5s;
-}
+} */
 
 .btn-coffee {
   background-color: #c4dabc;
 }
 
-.btn-coffee:hover:enabled {
+/* .btn-coffee:hover:enabled {
   background-color: green;
-}
+} */
 
 .btn-coffee:active:enabled {
   transform: translateY(10px);
@@ -157,25 +197,25 @@ button:hover {
 }
 
 .btn-bagel {
-  background-color: #ffe599ff;
+  background-color: #fceec2;
 }
 
-.btn-bagel:hover:enabled {
+/* .btn-bagel:hover:enabled {
   background-color: gold;
-}
+} */
 
 .btn-bagel:active:enabled {
   transform: translateY(10px);
-  box-shadow: 2px 2px 4px #ffe599ff;
+  box-shadow: 2px 2px 4px #fceec2;
 }
 
 .btn-pizza {
   background-color: #f4ccccff;
 }
 
-.btn-pizza:hover:enabled {
+/* .btn-pizza:hover:enabled {
   background-color: red;
-}
+} */
 
 .btn-pizza:active:enabled {
   transform: translateY(10px);
@@ -186,9 +226,9 @@ button:hover {
   background-color: #c9daf8ff;
 }
 
-.btn-sushi:hover:enabled {
+/* .btn-sushi:hover:enabled {
 background-color: blue;
-}
+} */
 
 .btn-sushi:active:enabled {
   transform: translateY(10px);
@@ -298,7 +338,7 @@ a:hover {
     font-size: 1rem;
     cursor: pointer;
     padding: 1rem 3rem;
-    margin: 1rem 0 1rem 0;
+    margin-top: 1rem;
   }
 
   .score-container {

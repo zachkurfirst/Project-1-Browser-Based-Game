@@ -4,7 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SIMON: NYC</title>
-    <link rel="favicon icon" type="image/png" href="docs/assets/favicon-statue-of-liberty.png">
+    <link
+      rel="favicon icon"
+      type="image/png"
+      href="docs/assets/favicon-statue-of-liberty.png"
+    />
     <link rel="stylesheet" href="./style.css" />
     <script defer src="./app.js"></script>
   </head>
@@ -19,29 +23,49 @@
     </header>
     <main class="container">
       <!-- intro section (description and restart prompts alternate visibilty) -->
-      <section class="intro-container">
-        <p id="description" class="intro-message">
-          Match the computer's choice sequence to earn a poin and advance to the
-          next round. Good luck!
-        </p>
+      <section id="instructions" class="intro-container">
+        <h2 class="instructions-container">Game Instructions</h2>
+        <ol class="intro-message">
+          <li>
+            Carefully observe the computer's choices by watching for the
+            blinking of each food icon.
+          </li>
+          <li>Repeat the computer's choices in the exact same order.</li>
+          <li>Earn a point and advance to the next round!</li>
+        </ol>
+      </section>
+      <!-- state of game section -->
+      <section class="game-state-container">
+        <button type="button" id="start" class="btn-start">Start Game</button>
         <h2 id="game-over" class="over-message" hidden>Game over!</h2>
         <button type="button" id="try-again" class="btn-restart" hidden>
           Try Again
         </button>
+        <div id="countdown-prompt" class="countdown-container" hidden>
+          <p>
+            The game begins in:
+            <span id="countdown" class="countdown-number">...</span>
+          </p>
+        </div>
       </section>
+      <!-- countdown section
+        <div id="countdown-prompt" class="countdown-container" hidden>
+          <p>The game begins in: <span id="countdown" class="countdown-number">...</span></p>
+          </div> -->
       <!-- scoreboard section -->
       <section id="score-state" class="score-container">
         <p>Score: <span id="current-score">...</span></p>
         <p>High Score: <span id="high-score">...</span></p>
       </section>
-      <!-- countdown section -->
-      <section id="countdown-prompt" class="countdown-container">
-        <p>The game begins in: <span id="countdown" class="countdown-number">...</span></p>
-      </section>
       <!-- gameboard section -->
       <section id="gameboard" class="btns-container">
         <button type="button" class="btn btn-coffee" id="coffee" disabled>
-          <img src="docs/assets/coffee.png" alt="coffee" class="img" id="coffee" />
+          <img
+            src="docs/assets/coffee.png"
+            alt="coffee"
+            class="img"
+            id="coffee"
+          />
         </button>
         <button type="button" class="btn btn-bagel" id="bagel" disabled>
           <img src="docs/assets/bagel.png" alt="bagel" class="img" id="bagel" />
@@ -56,13 +80,41 @@
     </main>
     <footer class="credits">
       <p class="credit-title">Image credit</p>
-      <p>Icons created by Smashicons via Flaticon:
-        <a href="https://www.flaticon.com/free-icons/mug" target="_blank" title="mug icons">mug</a>,
-        <a href="https://www.flaticon.com/free-icons/pizza" target="_blank" title="pizza icons">pizza</a>,
-        <a href="https://www.flaticon.com/free-icons/sushi" target="_blank" title="sushi icons">sushi</a>
+      <p>
+        Icons created by Smashicons via Flaticon:
+        <a
+          href="https://www.flaticon.com/free-icons/mug"
+          target="_blank"
+          title="mug icons"
+          >mug</a
+        >,
+        <a
+          href="https://www.flaticon.com/free-icons/pizza"
+          target="_blank"
+          title="pizza icons"
+          >pizza</a
+        >,
+        <a
+          href="https://www.flaticon.com/free-icons/sushi"
+          target="_blank"
+          title="sushi icons"
+          >sushi</a
+        >
       </p>
-      <p>Icon created by Freepik via Flaticon:
-        <a href="https://www.flaticon.com/free-icons/bagel" target="_blank" title="bagel icons">bagel</a>
+      <p>
+        Icons created by Freepik via Flaticon:
+        <a
+          href="https://www.flaticon.com/free-icons/statue-of-liberty"
+          target="_blank"
+          title="statue of liberty icons"
+          >statue of liberty</a
+        >,
+        <a
+          href="https://www.flaticon.com/free-icons/bagel"
+          target="_blank"
+          title="bagel icons"
+          >bagel</a
+        >
       </p>
     </footer>
   </body>

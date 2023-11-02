@@ -47,7 +47,7 @@ console.log("button elements: ", gameBtnEls);
 const tryAgainBtnEl = document.querySelector("#try-again");
 console.log("try again button element: ", tryAgainBtnEl);
 
-const introMsgEl = document.querySelector("#description");
+const introMsgEl = document.querySelector("#instructions");
 console.log("intro message element: ", introMsgEl);
 
 const coffeeBtnEl = document.querySelector("#coffee");
@@ -71,6 +71,9 @@ console.log("countdown prompt element: ", countdownPromptEl);
 const gameboardEl = document.querySelector("#gameboard");
 console.log("gameboard element: ", gameboardEl);
 
+const startGameBtnEl = document.querySelector("#start");
+console.log(startGameBtnEl);
+
 /*----- event listeners -----*/
 // Event listener for player button click
 // setTimeout(function () {
@@ -80,6 +83,7 @@ console.log("gameboard element: ", gameboardEl);
 //   });
 // }, 3000);
 
+startGameBtnEl.addEventListener("click", runGame);
 tryAgainBtnEl.addEventListener("click", restartGame);
 
 /*----- functions -----*/
@@ -87,6 +91,7 @@ tryAgainBtnEl.addEventListener("click", restartGame);
 init();
 
 function init() {
+  console.log('init ran')
   //reset choices arrays and set level back to start
   computerChoices = [];
   playerChoices = [];
@@ -94,7 +99,7 @@ function init() {
   // TODO: shouldn't be set to 0, should be set to existing high score
   if (highScore === undefined) {
     highScore = 0;
-    console.log('no high score: ', highScore)
+    console.log("no high score: ", highScore);
   } else {
     highScore = localStorage.getItem("highScore");
     console.log("recall high score: ", highScore);
@@ -106,9 +111,6 @@ function init() {
 
   countdown = 5;
 
-  console.log("game has started!");
-
-  runGame();
   render();
 }
 
@@ -127,7 +129,7 @@ function init() {
 // setting interval to run every 1000 ms
 
 // start countdown until < 1 and then run stop countdown to clear interval
-function countdownTimer() {
+function beginCountdown() {
   countdown--;
   countdownEl.textContent = countdown;
   console.log(countdown);
@@ -145,9 +147,10 @@ function stopCountdown() {
 // runGame -> game loop function -> the game logic lives here
 function runGame() {
   console.log("game is running!");
-
-  // call countdownTimer() with setInterval
-  interval = setInterval(countdownTimer, 1000);
+  startGameBtnEl.setAttribute("hidden", "");
+  countdownPromptEl.removeAttribute("hidden");
+  // call beginCountdown() with setInterval
+  interval = setInterval(beginCountdown, 1000);
 
   // computerTurn();
   //   render(); // as the game is changing, the render is effecting what is displayed on the page
@@ -334,7 +337,7 @@ function compareChoices() {
   coffeeBtnEl.setAttribute("disabled", "");
   bagelBtnEl.setAttribute("disabled", "");
   pizzaBtnEl.setAttribute("disabled", "");
-  sushiBtnEl.setAttribute("disabbled", "");
+  sushiBtnEl.setAttribute("disabled", "");
   if (playerString === computerString) {
     score++;
     if (score > highScore) {
@@ -363,6 +366,7 @@ function updateScoreboard() {
 
 // gameOver
 function gameOver() {
+  countdown = 5;
   setTimeout(function () {
     gameBtnEls.forEach(function (btn) {
       btn.removeEventListener("click", playerTurn);
@@ -383,8 +387,18 @@ function restartGame() {
   gameOverEl.setAttribute("hidden", "");
   tryAgainBtnEl.setAttribute("hidden", "");
   countdownPromptEl.removeAttribute("hidden");
-  gameboardEl.removeAttribute("hidden");
   gameboardEl.classList.remove("shake");
-  init();
-  location.reload(); // QUESTION: should I remove init? Are we loading JS twice? Maybe move
+  // mimic init function
+  computerChoices = [];
+  playerChoices = [];
+  score = 0;
+  if (highScore === undefined) {
+    highScore = 0;
+    console.log("no high score: ", highScore);
+  } else {
+    highScore = localStorage.getItem("highScore");
+    console.log("recall high score: ", highScore);
+  }
+  runGame();
+  render();
 }
