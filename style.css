@@ -85,8 +85,7 @@ body {
 }
 
 .btn-restart:hover {
-  background-color: #3d3de2;
-  color: white;
+  background-color: #92b6f4;
 }
 
 .score-container {
@@ -139,19 +138,15 @@ button:hover {
   background-color: rgb(196, 218, 188);
 }
 
-.btn-coffee:hover {
+.btn-coffee:active {
   background-color: green;
-}
-
-.active {
-  border: 4px solid red;
 }
 
 .btn-bagel {
   background-color: #ffe599ff;
 }
 
-.btn-bagel:hover {
+.btn-bagel:active {
   background-color: gold;
 }
 
@@ -159,7 +154,7 @@ button:hover {
   background-color: #f4ccccff;
 }
 
-.btn-pizza:hover {
+.btn-pizza:active {
   background-color: red;
 }
 
@@ -167,7 +162,7 @@ button:hover {
   background-color: #c9daf8ff;
 }
 
-.btn-sushi:hover {
+.btn-sushi:active {
   background-color: blue;
 }
 
@@ -179,7 +174,6 @@ button:hover {
 
 .shake {
   animation: shake 0.5s 2;
-  /* animation-iteration-count: 2; */
 }
 
 @keyframes shake {

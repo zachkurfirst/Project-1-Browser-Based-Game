@@ -41,7 +41,7 @@ console.log("high score element: ", highScoreEl);
 const gameOverEl = document.querySelector("#game-over");
 console.log("game over message element: ", gameOverEl);
 
-const gameBtnEls = document.querySelectorAll("#game-choices button");
+const gameBtnEls = document.querySelectorAll("#gameboard button");
 console.log("button elements: ", gameBtnEls);
 
 const tryAgainBtnEl = document.querySelector("#try-again");
@@ -68,14 +68,17 @@ console.log("countdown element: ", countdownEl);
 const countdownPromptEl = document.querySelector("#countdown-prompt");
 console.log("countdown prompt element: ", countdownPromptEl);
 
+const gameboardEl = document.querySelector("#gameboard");
+console.log("gameboard element: ", gameboardEl);
+
 /*----- event listeners -----*/
 // Event listener for player button click
-setTimeout(function () {
-  gameBtnEls.forEach(function (btn) {
-    // console.log('button value: ', btn.value)
-    btn.addEventListener("click", playerTurn);
-  });
-}, 3000);
+// setTimeout(function () {
+//   gameBtnEls.forEach(function (btn) {
+//     // console.log('button value: ', btn.value)
+//     btn.addEventListener("click", playerTurn);
+//   });
+// }, 3000);
 
 tryAgainBtnEl.addEventListener("click", restartGame);
 
@@ -101,7 +104,7 @@ function init() {
   //   console.log("score: ", score);
   //   console.log("high score: ", highScore);
 
-  countdown = 3;
+  countdown = 5;
 
   console.log("game has started!");
 
@@ -193,7 +196,6 @@ function computerTurn() {
   // console.log('arrPos line before round 2: ', arrPos)
 }
 
-
 const nodesDictionary = {
   coffee: coffeeBtnEl,
   bagel: bagelBtnEl,
@@ -216,13 +218,18 @@ function clearHighlights() {
 }
 
 function animateChoice() {
-  console.log('current arrPos: ', arrPos, 'array length: ', computerChoices.length)
-  clearHighlights();
+  console.log(
+    "current arrPos: ",
+    arrPos,
+    "array length: ",
+    computerChoices.length
+  );
+  // clearHighlights();
   if (arrPos === computerChoices.length) {
     // end turn
-    clearHighlights();
+    // clearHighlights();
     arrPos = 0;
-    console.log('removed all highlights: line 222')
+    console.log("removed all highlights: line 222");
     resetForPlayer();
     console.log("end computer turn");
     return clearInterval(animateTimer);
@@ -297,12 +304,15 @@ function resetForPlayer() {
   // NOTE: maybe enable event handler here (tbd)
   playerChoices = [];
   playerString = "";
+  gameBtnEls.forEach(function (btn) {
+    // console.log('button value: ', btn.value)
+    btn.addEventListener("click", playerTurn);
+  });
 }
 
 // playerTurn -> start with logging the name of the option on click
 function playerTurn(event) {
   //   console.log(event.target.id);
-
   playerChoices.push(event.target.id);
   console.log("player choice array: ", playerChoices);
   playerString = playerChoices.join("-"); // -> turn playerChoices array into a string
@@ -341,6 +351,9 @@ function updateScoreboard() {
   scoreEl.textContent = score;
   highScoreEl.textContent = highScore;
   console.log("update score: ", score, "update highScore: ", highScore);
+  gameBtnEls.forEach(function (btn) {
+    btn.removeEventListener("click", playerTurn);
+  });
   computerTurn();
 }
 
@@ -356,6 +369,8 @@ function gameOver() {
     gameOverEl.removeAttribute("hidden");
     tryAgainBtnEl.removeAttribute("hidden");
     introMsgEl.setAttribute("hidden", "");
+    gameboardEl.setAttribute("hidden", "");
+    // gameboardEl.style.visibility = "hidden";
   }, 500);
 }
 
@@ -364,7 +379,8 @@ function restartGame() {
   introMsgEl.removeAttribute("hidden");
   gameOverEl.setAttribute("hidden", "");
   tryAgainBtnEl.setAttribute("hidden", "");
-  countdownPromptEl.removeAttribute("hidden", "");
+  countdownPromptEl.removeAttribute("hidden");
+  gameboardEl.removeAttribute("hidden");
   init();
   location.reload(); // QUESTION: should I remove init? Are we loading JS twice? Maybe move
 }
