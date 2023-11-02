@@ -92,13 +92,13 @@ function init() {
   playerChoices = [];
   score = 0;
   // TODO: shouldn't be set to 0, should be set to existing high score
-  if ((highScore = undefined)) {
+  if (highScore === undefined) {
     highScore = 0;
+    console.log('no high score: ', highScore)
   } else {
     highScore = localStorage.getItem("highScore");
+    console.log("recall high score: ", highScore);
   }
-  console.log("remember high score: ", highScore);
-
   //   console.log("computer turn: ", computerChoices);
   //   console.log("player turn: ", playerChoices);
   //   console.log("score: ", score);
