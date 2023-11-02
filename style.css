@@ -86,13 +86,14 @@ h1 {
 }
 
 .btn-start {
+  color: #38137e;
   background-color: lightskyblue;
   border: none;
   font-size: 1.5rem;
   font-weight: bold;
   border-radius: 30px;
   cursor: pointer;
-  padding: 1rem 4rem;
+  padding: 1rem 5rem;
   margin: 1rem 0 0.5rem 0;
 }
 
@@ -101,13 +102,14 @@ h1 {
 }
 
 .btn-restart {
+  color: #38137e;
   background-color: lightskyblue;
   border: none;
   font-size: 1.5rem;
   font-weight: bold;
   border-radius: 1rem;
   cursor: pointer;
-  padding: 1rem 4rem;
+  padding: 1rem 5rem;
   margin-top: 1rem;
 }
 
@@ -308,22 +310,29 @@ a:hover {
     max-width: 400px;
   }
 
+  .instructions-container {
+    text-align: center;
+    height: auto;
+    max-width: 600px
+  }
+
   .instructions-title {
     font-size: 1.25rem;
     margin-bottom: 0.5rem;
   }
 
   .instructions-list {
-    margin: 0 auto;
+    font-size: 1.25rem;
+    margin: 0 10px 0 10px;
     list-style-position: inside;
     text-align: left;
   }
 
   .btn-start {
-    font-size: 1rem;
+    color: #38137e;
+    font-size: 1.25rem;
     cursor: pointer;
-    padding: 1rem 2rem;
-    padding: .5rem 2rem;
+    padding: 0.75rem 3rem;
     border-radius: 25px;
   }
 
@@ -332,10 +341,13 @@ a:hover {
   }
 
   .btn-restart {
-    font-size: 1rem;
+    color: #38137e;
+    font-size: 1.25rem;
     cursor: pointer;
-    padding: 1rem 2rem;
+    padding: 0.75rem 3rem;
     margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 25px;
   }
 
   .score-container {
@@ -370,18 +382,21 @@ a:hover {
   }
 
   .instructions-list {
-    font-size: 0.75rem;
-    margin: 0 50px 0 20px;
+    font-size: 1rem;
+    margin: 0 20px 0 5px;
   }
 
   .over-message {
-    font-size: 1rem;
+    font-size: 1.5rem;
+  }
+
+  .btn-start {
+    color: #38137e;
+    margin-bottom: 1rem;
   }
 
   .btn-restart {
-    font-size: 1rem;
-    cursor: pointer;
-    padding: 1rem 2rem;
-    margin-top: 1rem;
+    color: #38137e;
+    margin-bottom: 1rem;
   }
 }

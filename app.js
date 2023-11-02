@@ -109,7 +109,7 @@ function init() {
   //   console.log("score: ", score);
   //   console.log("high score: ", highScore);
 
-  countdown = 50;
+  countdown = 5;
 
   render();
 }
