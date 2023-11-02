@@ -4,7 +4,9 @@
 
 body {
   border: 2px solid blue;
-  background: linear-gradient(43deg, #7b7a7a, #434343ff);
+  /* background: linear-gradient(43deg, #7b7a7a, #434343ff); -> original gray gradient */
+  /* background: linear-gradient(43deg, #04abab, #0707c2); -> blue gradient */
+  background: linear-gradient(43deg, #4b5fcf, #451998);
   font-family: helvetica;
   font-size: 16px;
   min-height: 100vh;
@@ -159,28 +161,38 @@ button:hover {
 }
 
 .btn-bagel:hover:enabled {
-  background-color: #e0c166
+  background-color: gold;
 }
 
 .btn-bagel:active:enabled {
-background-color: gold;
+  transform: translateY(10px);
+  box-shadow: 2px 2px 4px #ffe599ff;
 }
 
 .btn-pizza {
   background-color: #f4ccccff;
 }
 
-.btn-pizza:active {
+.btn-pizza:hover:enabled {
   background-color: red;
-  box-shadow: 2px 2px 5px #fc894d;
+}
+
+.btn-pizza:active:enabled {
+  transform: translateY(10px);
+  box-shadow: 2px 2px 4px #f4ccccff;
 }
 
 .btn-sushi {
   background-color: #c9daf8ff;
 }
 
-.btn-sushi:active {
-  background-color: blue;
+.btn-sushi:hover:enabled {
+background-color: blue;
+}
+
+.btn-sushi:active:enabled {
+  transform: translateY(10px);
+  box-shadow: 2px 2px 4px #c9daf8ff;
 }
 
 .img {
