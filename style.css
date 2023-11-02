@@ -50,7 +50,7 @@ body {
 
 .container {
   border: 2px solid orange;
-  margin: auto;
+  margin: 0 auto;
   max-width: 590px;
 }
 
@@ -79,7 +79,8 @@ body {
   background-color: lightskyblue;
   border: none;
   font-size: 1.5rem;
-  border-radius: 1.5rem;
+  font-weight: bold;
+  border-radius: 1rem;
   cursor: pointer;
   padding: 1rem 4rem;
   margin: 1rem 0 2rem 0;
@@ -235,6 +236,7 @@ a:hover {
   body {
     border: 2px solid skyblue;
     font-size: 12px;
+    min-height: 0;
   }
   .game-title {
     border: 2px solid pink;
@@ -248,19 +250,56 @@ a:hover {
     display: inline-block;
     border-radius: 50%;
     display: inline-block;
-    width: 50px;
-    height: 50px;
-    line-height: 50px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
   }
 
   .container {
     border: 2px solid rgb(239, 214, 168);
     max-width: 400px;
+    /* margin: 10px; Left off here */
   }
-
   
   .intro-message {
     font-size: 1rem;
     padding-bottom: 1rem;
   }
+
+  .over-message {
+    font-size: 1.5rem;
+  }
+
+  .btn-restart {
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 1rem 3rem;
+    margin: 1rem 0 1rem 0;
+  }
+
+  .score-container {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .countdown-container {
+    font-size: 1.25rem;
+    margin: 0 0 1rem 0;
+  }
+
+  .btns-container {
+    border: 2px solid rgb(218, 237, 190);
+    gap: .5rem .5rem;
+  }
+  
+  .btn {
+    padding: 40px;
+  }
+
+  .img {
+    padding: 5px;
+    border: 2px solid orange;
+    max-width: 100px;
+  }
+
 }
