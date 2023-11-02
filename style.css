@@ -142,16 +142,17 @@ button:hover {
 }
 
 .btn-coffee {
-  background-color: rgb(196, 218, 188);
+  background-color: #c4dabc;
 }
 
-.btn-coffee:hover:enabled, .btn-coffee:active:enabled {
+.btn-coffee:hover:enabled {
   background-color: green;
 }
 
-/* .btn-coffee:active {
-  background-color: green;
-} */
+.btn-coffee:active:enabled {
+  transform: translateY(10px);
+  box-shadow: 2px 2px 4px #c4dabc;
+}
 
 .btn-bagel {
   background-color: #ffe599ff;
