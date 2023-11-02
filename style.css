@@ -68,10 +68,14 @@ h1 {
 
 .instructions-list {
   color: white;
-  font-size: 1rem;
+  font-size: 1.25rem;
   margin: 0 50px;
   list-style-position: inside;
   text-align: left;
+}
+
+li {
+  margin-bottom: 0.75rem;
 }
 
 .game-state-container {
@@ -313,7 +317,7 @@ a:hover {
   .instructions-container {
     text-align: center;
     height: auto;
-    max-width: 600px
+    max-width: 600px;
   }
 
   .instructions-title {
@@ -326,6 +330,7 @@ a:hover {
     margin: 0 10px 0 10px;
     list-style-position: inside;
     text-align: left;
+    padding-inline-start: 10px;
   }
 
   .btn-start {
@@ -374,6 +379,11 @@ a:hover {
     border: 2px solid orange;
     max-width: 100px;
   }
+
+  .credits {
+    margin: 2rem 0 1rem 1rem;
+    font-size: 0.75rem;
+  }
 }
 
 @media only screen and (max-width: 480px) {
@@ -382,7 +392,7 @@ a:hover {
   }
 
   .instructions-list {
-    font-size: 1rem;
+    font-size: 1.25rem;
     margin: 0 20px 0 5px;
   }
 
