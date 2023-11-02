@@ -49,6 +49,7 @@ body {
 }
 
 .container {
+  border: 2px solid orange;
   margin: auto;
   max-width: 590px;
 }
@@ -227,4 +228,39 @@ a {
 
 a:hover {
   color: #7598f8;
+}
+
+/* mobile design */
+@media only screen and (max-width: 600px) {
+  body {
+    border: 2px solid skyblue;
+    font-size: 12px;
+  }
+  .game-title {
+    border: 2px solid pink;
+    font-size: 2rem;
+  }
+
+  .subway-n,
+  .subway-y,
+  .subway-c,
+  .countdown-number {
+    display: inline-block;
+    border-radius: 50%;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+  }
+
+  .container {
+    border: 2px solid rgb(239, 214, 168);
+    max-width: 400px;
+  }
+
+  
+  .intro-message {
+    font-size: 1rem;
+    padding-bottom: 1rem;
+  }
 }
