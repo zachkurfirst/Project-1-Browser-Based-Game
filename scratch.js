@@ -1,20 +1,37 @@
+console.log("js:loaded");
+
 /*----- constants -----*/
+// Define constants (variables to reduce hard-coding)
+// Initial data states
+
 const options = ["coffee", "bagel", "pizza", "sushi"];
 
+// const INIT_STATE = {
+//   computerTurn: [],
+//   playerTurn: [],
+// };
+
 /*----- state variables -----*/
-let computerChoices = [];
-let playerChoices = [];
+// Data that will change while the game is running
+
+let computerChoices = []; // array of options
+let playerChoices = []; // array of options
+
 let computerString = "";
 let playerString = "";
+
 let score;
 let highScore;
 let countdown;
 let timer;
 let interval;
-let arrPos = 0;
+
+let arrPos = 0; // -> begin array position at 0 to indicate first choice
 let animateTimer;
 
 /*----- cached elements  -----*/
+// Select and save elements in variables that need to be accessed in JS more than once
+
 const scoreEl = document.querySelector("#current-score");
 console.log("score element: ", scoreEl);
 
@@ -74,15 +91,27 @@ tryAgainBtnEl.addEventListener("click", restartGame);
 init();
 
 function init() {
-  console.log("init ran ", highScore);
+  console.log('init ran')
   //reset choices arrays and set level back to start
   computerChoices = [];
   playerChoices = [];
   score = 0;
   // TODO: shouldn't be set to 0, should be set to existing high score
-  highScore = localStorage.getItem("highScore");
+
   if (highScore === undefined) {
     highScore = 0;
+  } else if (highScore > 0) {
+    highScore = localStorage.getItem("highScore");
+    console.log("recall high score: ", highScore);
+  }
+
+
+  if (highScore === undefined) {
+    highScore = 0;
+    console.log("no high score: ", highScore);
+  } else {
+    highScore = localStorage.getItem("highScore");
+    console.log("recall high score: ", highScore);
   }
   //   console.log("computer turn: ", computerChoices);
   //   console.log("player turn: ", playerChoices);
@@ -368,12 +397,13 @@ function restartGame() {
   computerChoices = [];
   playerChoices = [];
   score = 0;
-  // if (highScore === undefined) {
-  //   highScore = 0;
-  // } else if (highScore > 0) {
-  //   highScore = localStorage.getItem("highScore");
-  //   console.log("recall high score: ", highScore);
-  // }
+  if (highScore === undefined) {
+    highScore = 0;
+    console.log("no high score: ", highScore);
+  } else {
+    highScore = localStorage.getItem("highScore");
+    console.log("recall high score: ", highScore);
+  }
   interval = setInterval(beginCountdown, 1000);
   render();
 }
