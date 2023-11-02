@@ -218,22 +218,15 @@ function clearHighlights() {
 }
 
 function animateChoice() {
-  console.log(
-    "current arrPos: ",
-    arrPos,
-    "array length: ",
-    computerChoices.length
-  );
-  // clearHighlights();
+  console.log( "current arrPos: ", arrPos, "array length: ", computerChoices.length);
   if (arrPos === computerChoices.length) {
     // end turn
-    // clearHighlights();
     arrPos = 0;
-    console.log("removed all highlights: line 222");
     resetForPlayer();
     console.log("end computer turn");
     return clearInterval(animateTimer);
   } else {
+    // start computer turn cycle
     console.log("start of cycle");
     const currentMove = computerChoices[arrPos];
     if (currentMove === "coffee") {
@@ -369,7 +362,8 @@ function gameOver() {
     gameOverEl.removeAttribute("hidden");
     tryAgainBtnEl.removeAttribute("hidden");
     introMsgEl.setAttribute("hidden", "");
-    gameboardEl.setAttribute("hidden", "");
+    // gameboardEl.setAttribute("hidden", "");
+    gameboardEl.classList.add("shake");
     // gameboardEl.style.visibility = "hidden";
   }, 500);
 }
@@ -381,6 +375,7 @@ function restartGame() {
   tryAgainBtnEl.setAttribute("hidden", "");
   countdownPromptEl.removeAttribute("hidden");
   gameboardEl.removeAttribute("hidden");
+  gameboardEl.classList.remove("shake");
   init();
   location.reload(); // QUESTION: should I remove init? Are we loading JS twice? Maybe move
 }
