@@ -218,7 +218,12 @@ function clearHighlights() {
 }
 
 function animateChoice() {
-  console.log( "current arrPos: ", arrPos, "array length: ", computerChoices.length);
+  console.log(
+    "current arrPos: ",
+    arrPos,
+    "array length: ",
+    computerChoices.length
+  );
   if (arrPos === computerChoices.length) {
     // end turn
     arrPos = 0;
@@ -234,28 +239,28 @@ function animateChoice() {
       console.log("highlight coffee");
       setTimeout(function () {
         coffeeBtnEl.style.backgroundColor = "";
-      }, 500);
+      }, 200);
     }
     if (currentMove === "bagel") {
       bagelBtnEl.style.backgroundColor = "gold";
       console.log("highlight bagel");
       setTimeout(function () {
         bagelBtnEl.style.backgroundColor = "";
-      }, 500);
+      }, 200);
     }
     if (currentMove === "pizza") {
       pizzaBtnEl.style.backgroundColor = "red";
       console.log("highlight pizza");
       setTimeout(function () {
         pizzaBtnEl.style.backgroundColor = "";
-      }, 500);
+      }, 200);
     }
     if (currentMove === "sushi") {
       sushiBtnEl.style.backgroundColor = "blue";
       console.log("highlight sushi");
       setTimeout(function () {
         sushiBtnEl.style.backgroundColor = "";
-      }, 500);
+      }, 200);
     }
     arrPos++;
   }
@@ -298,7 +303,7 @@ function resetForPlayer() {
   playerChoices = [];
   playerString = "";
   gameBtnEls.forEach(function (btn) {
-    // console.log('button value: ', btn.value)
+    btn.removeAttribute("disabled");
     btn.addEventListener("click", playerTurn);
   });
 }
@@ -326,6 +331,10 @@ function playerTurn(event) {
 // If ===, call computerTurn function
 // If !==, game over
 function compareChoices() {
+  coffeeBtnEl.setAttribute("disabled", "");
+  bagelBtnEl.setAttribute("disabled", "");
+  pizzaBtnEl.setAttribute("disabled", "");
+  sushiBtnEl.setAttribute("disabbled", "");
   if (playerString === computerString) {
     score++;
     if (score > highScore) {

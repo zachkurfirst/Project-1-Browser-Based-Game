@@ -132,6 +132,11 @@ p {
   padding: 80px;
 }
 
+.btn:disabled {
+  cursor: not-allowed;
+  /* background-color: #7b7a7a; */
+}
+
 button:hover {
   transition: 0.5s;
 }
@@ -140,16 +145,24 @@ button:hover {
   background-color: rgb(196, 218, 188);
 }
 
-.btn-coffee:active {
+.btn-coffee:hover:enabled, .btn-coffee:active:enabled {
   background-color: green;
 }
+
+/* .btn-coffee:active {
+  background-color: green;
+} */
 
 .btn-bagel {
   background-color: #ffe599ff;
 }
 
-.btn-bagel:active {
-  background-color: gold;
+.btn-bagel:hover:enabled {
+  background-color: #e0c166
+}
+
+.btn-bagel:active:enabled {
+background-color: gold;
 }
 
 .btn-pizza {
@@ -158,6 +171,7 @@ button:hover {
 
 .btn-pizza:active {
   background-color: red;
+  box-shadow: 2px 2px 5px #fc894d;
 }
 
 .btn-sushi {
@@ -247,9 +261,6 @@ a:hover {
   .subway-y,
   .subway-c,
   .countdown-number {
-    display: inline-block;
-    border-radius: 50%;
-    display: inline-block;
     width: 40px;
     height: 40px;
     line-height: 40px;
