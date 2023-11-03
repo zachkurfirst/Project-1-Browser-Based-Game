@@ -40,6 +40,7 @@ init();
 
 function init() {
   score = 0;
+  // check local storage for pre-existing high score
   highScore = localStorage.getItem("highScore");
   if (highScore === undefined || highScore === null) {
     highScore = 0;
@@ -62,7 +63,7 @@ function renderCountdown() {
   countdownEl.textContent = countdown;
 }
 
-// runGame -> when player clicks 'start game' OR 'try again' button
+// prompted by click event listener on 'start game' button
 function runGame() {
   instructionsEl.setAttribute("hidden", "");
   startGameBtnEl.setAttribute("hidden", "");
@@ -84,6 +85,7 @@ function stopCountdown() {
   countdownPromptEl.setAttribute("hidden", "");
 }
 
+// convert array to string for ease of comparison
 function computerTurn() {
   const rdmChoice = Math.floor(Math.random() * options.length);
   computerChoices.push(options[rdmChoice]);
@@ -91,14 +93,13 @@ function computerTurn() {
   animateTimer = setInterval(animateChoices, 1500);
 }
 
+// cycle through each computer choice to display in UI
 function animateChoices() {
   if (arrPos === computerChoices.length) {
-    // end turn
     arrPos = 0;
     resetForPlayer();
     return clearInterval(animateTimer);
   } else {
-    // style computer turn
     const currentMove = computerChoices[arrPos];
     if (currentMove === "coffee") {
       coffeeBtnEl.style.backgroundColor = "green";
@@ -128,7 +129,7 @@ function animateChoices() {
   }
 }
 
-// resetForPlayer -> at end of each computer turn, erase player history and active button event listener
+// erase player history and enable button for upcoming choices
 function resetForPlayer() {
   playerChoices = [];
   playerString = "";
@@ -138,7 +139,7 @@ function resetForPlayer() {
   });
 }
 
-// playerTurn -> start with logging the name of the option on click
+// return truthy allows player to continue making choices
 function playerTurn(event) {
   playerChoices.push(event.target.id);
   playerString = playerChoices.join("-");
@@ -164,7 +165,7 @@ function compareChoices() {
   }
 }
 
-// updateScoreboard -> advance to next level, update high score (if applicable)
+// store new high score (if applicable) and remove event listener
 function updateScoreboard() {
   score++;
   if (score > highScore) {
@@ -179,7 +180,7 @@ function updateScoreboard() {
   computerTurn();
 }
 
-// gameOver -> string comparison check is false and player loses
+// after half second delay, end game
 function gameOver() {
   setTimeout(function () {
     gameBtnEls.forEach(function (btn) {
@@ -191,7 +192,7 @@ function gameOver() {
   }, 500);
 }
 
-//restartGame -> player clicks 'try again' button
+// propt game restart with resetting of variables and begin countdown
 function restartGame() {
   gameOverEl.setAttribute("hidden", "");
   tryAgainBtnEl.setAttribute("hidden", "");

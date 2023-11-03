@@ -1,17 +1,17 @@
 # 🗽 SIMON: NYC 🗽 
-I choose to build the classic short-term memory game, 'Simon'. I recently moved to New York City, so I have chosen to replace the classic green, red, blue, and yellow colored buttons with some of the city's most notorious indulgences: coffee ☕️, bagels 🥯, pizza 🍕, and sushi 🍣!
+I chose to build the classic short-term memory game, 'Simon'. I recently moved to New York City, so I have chosen to replace the classic green, red, blue, and yellow colored buttons with some of the city's most notorious indulgences: coffee ☕️, bagels 🥯, pizza 🍕, and sushi 🍣!
 
 ## The Objective
 The goal of the game is to repeat the exact sequence of choices the computer makes. As you progress to the next round, the computer will add on one additional choice to their exisiting sequence.
 
 ## How-To-Play
-- Once you click 'Start Game', a 5-second countdown will begin. Once it reaches 0, the game officially begins with the computer's first choice!
+- Once you click 'Start Game', a 5-second countdown will begin. Once it reaches 0, the game officially begins with the computer's first choice.
 - The computer's choices will be indicated by a brief change in the circle's color state. For example, they could choose 'sushi' (the circle would turn blue).
-- Each turn, repeat the computer's choices, in the exact order. If you choose correctly, you will earn a point and advance to the next round.
+- Each turn, repeat the computer's choices in the exact order you remember them. If you choose the order correctly, you will earn a point and advance to the next round.
 - If you do not match the computer's exact sequence, GAME OVER!
 
 ## Screenshots
-Carefully read the instructions, and then press 'Start Game' to begin the countdown...
+You'll first see some brief instructions, followed by a 'Start Game' button that will start the countdown...
 ![game instructions and start game button](docs/images/instructions-and-game-start.png)
 
 The countdown will start at 5 seconds. Once it's complete, the computer will make their first move!
@@ -29,7 +29,7 @@ Make a mistake, forget the sequence, or just got distracted? Don't worry, you ca
 - JavaScript
 
 ## Getting Started
-<a href="https://zachkurfirst.github.io/project-1-simon-nyc/" target="no_blank"> ▶️ Play SIMON: NYC</a>
+▶️ <a href="https://zachkurfirst.github.io/project-1-simon-nyc/" target="_blank">Play SIMON: NYC</a>
 
 ### Tips while playing...
 - The computer will begin each turn by repeating their previous choices. Then, they'll add one new, random choice - so look out for that repetition!
