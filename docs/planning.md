@@ -2,7 +2,7 @@
 I am choosing to build 'Simon', a short-term memory game. I recently moved to New York City, so I have chosen to replace the classic green, red, blue, and yellow colored buttons with some of the city's most notorious indulgences: coffee, bagels, pizza, and sushi!
 
 ## Wireframe
-![NYC Simon Wireframe](docs/assets/wireframe.png)
+![wireframe](./images/wireframe.png)
 
 ## Pseudocode & Step by Step Logic
 ### Set Variables and Cache Elements
@@ -11,7 +11,7 @@ Identify and store variables for later use.
 2. State variables for computer and player choice arrays, strings (for comparisons), scores, timers etc.
 3. Cache elements from HTML for DOM manipulation in browser via JS. For ease of ease, I'll be using querySelector (or querySelectorAll) for element selection, all by '#id' value (reserving class values for CSS styling)
 
-#### Event Listeners
+### Event Listeners
 1. Start Game button -> click will begin game
 2. Restart Game button -> click will restart game
 3. Game choice buttons (coffee, bagel, etc...) -> click will log player choice
@@ -38,7 +38,7 @@ Identify and store variables for later use.
 14. restartGame(): if player chooses to restart with click, remove game over items and return timer, reset key variables to starting point -> beginCountdown() & render()
 
 ## User Stories
-### As a player, I would like to...
+#### As a player, I would like to...
 1. First be introduced to brief game instructions.
 2. See the computer make their choice.
 3. Then make my choice.
