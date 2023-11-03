@@ -277,6 +277,7 @@ a:hover {
   .subway-y,
   .subway-c,
   .countdown-number {
+    margin-right: 4px;
     width: 40px;
     height: 40px;
     line-height: 40px;
@@ -351,7 +352,7 @@ a:hover {
   }
 
   .credits {
-    margin: 2rem 0 1rem 1rem;
+    margin: 2rem 2rem 1rem 0;
     font-size: 0.75rem;
   }
 }

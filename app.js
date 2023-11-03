@@ -41,7 +41,7 @@ init();
 function init() {
   score = 0;
   highScore = localStorage.getItem("highScore");
-  if (highScore === undefined) {
+  if (highScore === undefined || highScore === null) {
     highScore = 0;
   }
   countdown = 5;
@@ -73,7 +73,6 @@ function runGame() {
 function beginCountdown() {
   countdown--;
   countdownEl.textContent = countdown;
-  console.log(countdown);
   if (countdown < 1) {
     stopCountdown();
     computerTurn();
@@ -88,52 +87,39 @@ function stopCountdown() {
 function computerTurn() {
   const rdmChoice = Math.floor(Math.random() * options.length);
   computerChoices.push(options[rdmChoice]);
-  computerString = computerChoices.join("-"); // -> turn computerChoices array into a string
-  console.log("computer choice string: ", computerString);
+  computerString = computerChoices.join("-");
   animateTimer = setInterval(animateChoices, 1500);
 }
 
 function animateChoices() {
-  console.log(
-    "current arrPos: ",
-    arrPos,
-    "array length: ",
-    computerChoices.length
-  );
   if (arrPos === computerChoices.length) {
     // end turn
     arrPos = 0;
     resetForPlayer();
-    console.log("end computer turn");
     return clearInterval(animateTimer);
   } else {
-    // start computer turn cycle
-    console.log("start of cycle");
+    // style computer turn
     const currentMove = computerChoices[arrPos];
     if (currentMove === "coffee") {
       coffeeBtnEl.style.backgroundColor = "green";
-      console.log("highlight coffee");
       setTimeout(function () {
         coffeeBtnEl.style.backgroundColor = "";
       }, 200);
     }
     if (currentMove === "bagel") {
       bagelBtnEl.style.backgroundColor = "gold";
-      console.log("highlight bagel");
       setTimeout(function () {
         bagelBtnEl.style.backgroundColor = "";
       }, 200);
     }
     if (currentMove === "pizza") {
       pizzaBtnEl.style.backgroundColor = "red";
-      console.log("highlight pizza");
       setTimeout(function () {
         pizzaBtnEl.style.backgroundColor = "";
       }, 200);
     }
     if (currentMove === "sushi") {
       sushiBtnEl.style.backgroundColor = "blue";
-      console.log("highlight sushi");
       setTimeout(function () {
         sushiBtnEl.style.backgroundColor = "";
       }, 200);
@@ -155,10 +141,7 @@ function resetForPlayer() {
 // playerTurn -> start with logging the name of the option on click
 function playerTurn(event) {
   playerChoices.push(event.target.id);
-  console.log("player choice array: ", playerChoices);
   playerString = playerChoices.join("-");
-  console.log("player choice string: ", playerString);
-
   if (
     computerString.startsWith(playerString) &&
     playerString !== computerString
@@ -187,7 +170,6 @@ function updateScoreboard() {
   if (score > highScore) {
     localStorage.setItem("highScore", score);
     highScore = localStorage.getItem("highScore");
-    console.log(localStorage, highScore);
   }
   scoreEl.textContent = score;
   highScoreEl.textContent = highScore;

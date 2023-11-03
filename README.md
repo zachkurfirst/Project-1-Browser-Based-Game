@@ -1,11 +1,25 @@
 # 🗽 SIMON: NYC 🗽 
-I choce to build the classic short-term memory game, 'Simon'. I recently moved to New York City, so I have chosen to replace the classic green, red, blue, and yellow colored buttons with some of the city's most notorious indulgences: coffee ☕️, bagels 🥯, pizza 🍕, and sushi 🍣!
+I choose to build the classic short-term memory game, 'Simon'. I recently moved to New York City, so I have chosen to replace the classic green, red, blue, and yellow colored buttons with some of the city's most notorious indulgences: coffee ☕️, bagels 🥯, pizza 🍕, and sushi 🍣!
 
-## Screenshot(s)
-![]
-![]
-![]
-![]
+## The Objective
+The goal of the game is to repeat the exact sequence of choices the computer makes. As you progress to the next round, the computer will add on one additional choice to their exisiting sequence.
+
+## How-To-Play
+- Once you click 'Start Game', a 5-second countdown will begin. Once it reaches 0, the game officially begins with the computer's first choice!
+- The computer's choices will be indicated by a brief change in the circle's color state. For example, they could choose 'sushi' (the circle would turn blue).
+- Each turn, repeat the computer's choices, in the exact order. If you choose correctly, you will earn a point and advance to the next round.
+- If you do not match the computer's exact sequence, GAME OVER!
+
+## Screenshots
+Carefully read the instructions, and then press 'Start Game' to begin the countdown...
+![game instructions and start game button](docs/images/instructions-and-game-start.png)
+
+The countdown will start at 5 seconds. Once it's complete, the computer will make their first move!
+![countdown timer](docs/images/countdown.png)
+
+Below is an example of the computer selecting bagel (notice the yellow circle!) Do you have what it takes to set a high score?
+![gameboard with yellow selected for choice: 'bagel'](docs/images/gameboard-with-active-state.png)
+![game over and try again prompt](docs/images/game-over-and-try-again.png)
 
 ## Technologies Used
 - HTML
@@ -13,36 +27,16 @@ I choce to build the classic short-term memory game, 'Simon'. I recently moved t
 - JavaScript
 
 ## Getting Started
-In this section include the link to your deployed game and any instructions you deem important.
+<a href="https://zachkurfirst.github.io/project-1-simon-nyc/" target="no_blank"> ▶️ Play SIMON: NYC</a>
 
-## Next Steps
-Planned future enhancements (icebox items).
+### Tips while playing...
+- The computer will begin each turn by repeating their previous choices. Then, they'll add one new, random choice - so look out for that repetition!
+- This is a memory game. Pay very close attention to the computer's choices.
+- Your click state is disabled (intentionally) until it's your turn. With that in mind, be patient with your first choice on each turn. If you click too quickly after the computer finishes, the click may not be registered.
+- Your turn is not timed! Once the computer finishes their turn, take your time, no need to rush through your choices!
 
-Note: Don't underestimate the value of a well crafted README.md. The README.md introduces your project to prospective employers and forms their first impression of your work!
-
-///
-
-## Game Logic
-
-
-#### The Objective
-The goal of the game is to repeat the exact sequence of choices the computer makes. As you progress to the next round, the computer will add on one additional choice to their exisiting sequence.
-
-#### 1. Computer Turn
-The game begins with the computer making it's first choice. For example, the computer could select 'pizza'.
-
-#### 2. Player Turn
-Next, the player is required to match the computer's choice in order for the game to continue.
-
-#### 3. Correct Guess
-If the player correctly repeats the computer's choice, they earn a point and the game continues to the next round.
-
-After each correct guess, the player advances to the next level, and the level count increases by 1.
-
-The computer would then make it's second choice. Each computer turn involves first repeating the exact sequence of their previous choices.
-
-#### 4. Incorrect Guess
-If the player guesses incorrectly, the game ends.
-
-#### 5. High Score
-The game will display the high score. If the player advances to a level greater than the current high score, the high score value will be updated.
+## Icebox Features
+Features to consider for future updates...
+- Audio on countdown, both computer and player choices, and game over
+- Improved mobile click response to improve user experience
+- Improved timing/duration on the enabling/disabling of the player click handler (see point 2 above in 'Tips while playing...' section)
