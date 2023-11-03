@@ -19,6 +19,8 @@ The countdown will start at 5 seconds. Once it's complete, the computer will mak
 
 Below is an example of the computer selecting bagel (notice the yellow circle!) Do you have what it takes to set a high score?
 ![gameboard with yellow selected for choice: 'bagel'](docs/images/gameboard-with-active-state.png)
+
+Make a mistake, forget the sequence, or just got distracted? Don't worry, you can try again!
 ![game over and try again prompt](docs/images/game-over-and-try-again.png)
 
 ## Technologies Used
