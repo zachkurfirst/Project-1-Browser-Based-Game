@@ -3,7 +3,7 @@
 }
 
 body {
-  background: linear-gradient(43deg, #4b5fcf, #38137e);
+  background: linear-gradient(43deg, #c8e1f4, #185a9b);
   font-family: helvetica;
   font-size: 16px;
   min-height: 100vh;
@@ -83,10 +83,11 @@ li {
 }
 
 .over-message {
-  color: #ea9d9d;
+  color: #741818;
   text-align: center;
   font-size: 2.5rem;
   margin: auto;
+  text-transform: uppercase;
 }
 
 .btn-start {
@@ -102,7 +103,7 @@ li {
 }
 
 .btn-start:hover {
-  background-color: #92b6f4;
+  background-color: #5bbcf8;
 }
 
 .btn-restart {
@@ -118,12 +119,11 @@ li {
 }
 
 .btn-restart:hover {
-  background-color: #92b6f4;
+  background-color: #5bbcf8;
 }
 
 .score-container {
-  border: 2px solid lightskyblue;
-  /* border-radius: .5rem; */
+  border: 2px solid #185a9b;
   text-align: center;
   font-size: 1.5rem;
   margin: 1rem auto 1rem auto;
@@ -147,16 +147,10 @@ p {
 }
 
 .btns-container {
-  border: 2px solid greenyellow;
-  /* display: flex; */
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  /* flex-wrap: wrap;
-  justify-content: center;
-  align-items: center; */
   gap: 1rem 1rem;
-  /* max-width: 980px; */
 }
 
 .btn {
@@ -168,20 +162,11 @@ p {
 
 .btn:disabled {
   cursor: not-allowed;
-  /* background-color: #7b7a7a; */
 }
-
-/* button:hover {
-  transition: 0.5s;
-} */
 
 .btn-coffee {
   background-color: #c4dabc;
 }
-
-/* .btn-coffee:hover:enabled {
-  background-color: green;
-} */
 
 .btn-coffee:active:enabled {
   transform: translateY(10px);
@@ -192,10 +177,6 @@ p {
   background-color: #fceec2;
 }
 
-/* .btn-bagel:hover:enabled {
-  background-color: gold;
-} */
-
 .btn-bagel:active:enabled {
   transform: translateY(10px);
   box-shadow: 2px 2px 4px #fceec2;
@@ -204,10 +185,6 @@ p {
 .btn-pizza {
   background-color: #f4ccccff;
 }
-
-/* .btn-pizza:hover:enabled {
-  background-color: red;
-} */
 
 .btn-pizza:active:enabled {
   transform: translateY(10px);
@@ -218,10 +195,6 @@ p {
   background-color: #c9daf8ff;
 }
 
-/* .btn-sushi:hover:enabled {
-background-color: blue;
-} */
-
 .btn-sushi:active:enabled {
   transform: translateY(10px);
   box-shadow: 2px 2px 4px #c9daf8ff;
@@ -229,7 +202,6 @@ background-color: blue;
 
 .img {
   padding: 5px;
-  border: 2px solid orange;
   max-width: 125px;
 }
 
@@ -274,8 +246,9 @@ background-color: blue;
 }
 
 .credits {
-  margin: 4rem 0 1rem 2rem;
+  margin: 4rem 2rem 1rem 0;
   font-size: 0.75rem;
+  align-self: flex-end;
 }
 
 .credit-title {
@@ -293,7 +266,6 @@ a:hover {
 /* mobile design */
 @media only screen and (max-width: 600px) {
   body {
-    border: 2px solid skyblue;
     font-size: 12px;
     min-height: 0;
   }
@@ -366,7 +338,6 @@ a:hover {
   }
 
   .btns-container {
-    border: 2px solid rgb(218, 237, 190);
     gap: 0.5rem 0.5rem;
   }
 
@@ -376,7 +347,6 @@ a:hover {
 
   .img {
     padding: 5px;
-    border: 2px solid orange;
     max-width: 100px;
   }
 
